@@ -1,0 +1,246 @@
+/* Contenedor principal de login */
+.login-container {
+    width: 100%;
+    max-width: 420px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #2E7D32, #66BB6A);
+    color: #fff;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Animación de fondo */
+.login-container::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    animation: moveAround 6s infinite alternate ease-in-out;
+}
+
+@keyframes moveAround {
+    from { transform: translate(0, 0); }
+    to { transform: translate(30px, 30px); }
+}
+
+/* Encabezado del formulario */
+.login-header {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para los campos del formulario */
+.form-group {
+    margin-bottom: 20px;
+}
+
+input[type="email"], input[type="password"], input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px solid #1B5E20;
+    font-size: 1.1rem;
+    background-color: #E8F5E9;
+    color: #1B5E20;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.8);
+    transform: scale(1.03);
+}
+
+/* Botón de login */
+.login-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #1B5E20;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.login-button:hover {
+    background-color: #145A32;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Enlaces para olvidó la contraseña y crear cuenta */
+.login-links {
+    margin-top: 15px;
+}
+
+.forgot-password, .create-account {
+    color: white; /* Aseguramos que el texto sea blanco */
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover, .create-account:hover {
+    text-decoration: underline;
+    color: #A5D6A7; /* Un color más claro de verde para el hover */
+}
+
+/* Sección de selección de tipo de usuario */
+.user-type-selection {
+    margin-top: 40px;
+    font-size: 1.2rem;
+    color: #1B5E20;
+}
+
+.user-buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.user-buttons button {
+    width: 130px;
+    padding: 12px;
+    background-color: #388E3C;
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    opacity: 0.9;
+}
+
+.user-buttons button:hover {
+    background-color: #1B5E20;
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Contenido del modal */
+.modal-content {
+    background-color: #F1F8E9;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 450px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+    color: #1B5E20;
+}
+
+/* Botones dentro del modal */
+.modal-content button {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    background-color: #388E3C;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+    background-color: #1B5E20;
+}
+
+/* Estilo para el botón de cerrar */
+.close-btn {
+    color: #555;
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilo para el mensaje de error */
+.error-message {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Estilo para el enlace "Crear nueva cuenta" */
+.create-account {
+    color: white; /* Establecemos el color blanco para que sea visible en el fondo */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.create-account:hover {
+    color: #A5D6A7; /* Un color más claro de verde para el hover */
+    text-decoration: underline;
+}
+
+/* Estilo para el botón "Volver a Iniciar Sesión" */
+a.login-button {
+    display: inline-block;
+    width: 100%;
+    padding: 12px;
+    background-color: #1B5E20;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+a.login-button:hover {
+    background-color: #145A32;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}

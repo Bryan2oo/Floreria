@@ -1,0 +1,51 @@
+        .reportes-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        
+        .reporte-card {
+            width: 45%;
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #c71585;
+            border-radius: 10px;
+            background-color: #fff9fb;
+            box-shadow: 0 4px 8px rgba(199, 21, 133, 0.1);
+        }
+        
+        .reporte-card h3 {
+            color: #c71585;
+            border-bottom: 1px solid #c71585;
+            padding-bottom: 10px;
+        }
+        
+        .btn-ver-reporte {
+            background-color: #c71585;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .btn-ver-reporte:hover {
+            background-color: #a0126a;
+        }
+        /* ...existing code... */
+
+        .btn-generar-pdf {
+            background-color: #c71585; /* Igual que .btn-ver-reporte */
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .btn-generar-pdf:hover {
+            background-color: #a0126a; /* Igual que .btn-ver-reporte:hover */
+        }

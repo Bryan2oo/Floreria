@@ -1,0 +1,92 @@
+/* ======= Título ======= */
+h2 {
+    color: #d81b60;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+/* ======= Formulario de búsqueda ======= */
+form {
+    margin-bottom: 30px;
+}
+
+form input[type="text"] {
+    border: 2px solid #f8bbd0;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: #fff0f5;
+    color: #880e4f;
+    padding: 12px;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+form input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0 0 12px rgba(248, 187, 208, 0.8);
+    transform: scale(1.02);
+}
+
+form button {
+    background-color: #f06292;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form button:hover {
+    background-color: #ec407a;
+    transform: translateY(-2px);
+}
+
+/* ======= Tabla de resultados ======= */
+.table {
+    background-color: #fff0f5;
+    border: 2px solid #f8bbd0;
+}
+
+.table th,
+.table td {
+    border: 1px solid #f8bbd0;
+    padding: 15px;
+    text-align: center;
+    vertical-align: middle;
+    color: #880e4f;
+}
+
+.table thead {
+    background-color: #f06292;
+    color: white;
+}
+
+.table tbody tr:nth-child(odd) {
+    background-color: #ffe4ec;
+}
+
+.table tbody tr:hover {
+    background-color: #fce4ec;
+}
+
+.table img {
+    border-radius: 10px;
+    border: 2px solid #f8bbd0;
+    padding: 2px;
+}
+
+/* ======= Mensaje sin resultados ======= */
+.table td[colspan] {
+    font-weight: bold;
+    color: #c2185b;
+}
+button.btn-primary {
+    background-color: #ffb6c1;
+    color: #880e4f;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}

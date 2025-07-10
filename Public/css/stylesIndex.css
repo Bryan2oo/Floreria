@@ -1,0 +1,177 @@
+/* Estilos generales */
+body {
+    background-color: #fff9f5; /* Fondo blanco con tono durazno muy suave */
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #5a4a42; /* Texto marrón suave en lugar de negro */
+}
+
+/* Estilos para la portada */
+.portada {
+    position: relative;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffd6c8, #f8c8dc); /* Degradado durazno a rosa pastel */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.portada-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.portada-texto {
+    max-width: 600px;
+    text-align: left;
+}
+
+.portada h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4.5rem;
+    font-weight: 700; /* Un poco menos grueso para elegancia */
+    margin-bottom: 20px;
+    color: #7a5c58; /* Marrón rosado suave */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+    animation: fadeInDown 1.5s ease-out;
+}
+
+.portada p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: #7a5c58; /* Mismo tono que el h1 */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.05);
+    animation: fadeInUp 1.5s ease-out;
+}
+
+.portada .texto-dinamico {
+    font-family: 'Lobster', cursive;
+    font-size: 2.5rem;
+    color: #e8a87c; /* Durazno más intenso */
+    animation: despliegue 2s ease-out, bounce 2s infinite;
+}
+
+.portada .btn-explorar {
+    background-color: #e8a87c; /* Durazno */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: fadeInUp 2s ease-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.portada .btn-explorar:hover {
+    background-color: #d49a6a; /* Durazno más oscuro */
+    transform: scale(1.05);
+}
+
+.portada .productos-destacados {
+    background: rgba(255, 255, 255, 0.85); /* Fondo blanco semitransparente */
+    border-radius: 15px;
+    padding: 20px;
+    width: 600px;
+    animation: fadeInRight 1.5s ease-out;
+    border: 1px solid rgba(232, 168, 124, 0.3); /* Borde sutil durazno */
+}
+
+.portada .productos-destacados h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 600; /* Menos grueso */
+    margin-bottom: 20px;
+    color: #e8a87c; /* Durazno */
+}
+
+.portada .productos-destacados .card {
+    background: rgba(255, 248, 240, 0.9); /* Fondo blanco durazno muy suave */
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(232, 168, 124, 0.2); /* Borde sutil */
+}
+
+.portada .productos-destacados .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+
+.portada .productos-destacados .card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 2px solid #f8c8dc; /* Borde rosa pastel */
+}
+
+.portada .productos-destacados .card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #7a5c58; /* Marrón rosado */
+}
+
+.portada .productos-destacados .card p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: #a38f84; /* Gris marrón más claro */
+}
+
+/* Decoraciones florales */
+.portada::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://example.com/floral-pattern.png'); /* Patrón floral sutil */
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+/* Animaciones (se mantienen iguales) */
+@keyframes fadeInDown {
+    0% { opacity: 0; transform: translateY(-50px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(50px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInRight {
+    0% { opacity: 0; transform: translateX(50px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes despliegue {
+    0% { opacity: 0; transform: translateX(-100%); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}

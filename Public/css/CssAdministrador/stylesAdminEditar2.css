@@ -1,0 +1,118 @@
+/* ===== Fondo general ===== */
+body {
+    background-color: #fff0f5;
+    font-family: 'Poppins', 'Montserrat', sans-serif;
+}
+
+/* ===== Encabezado principal ===== */
+h1 {
+    font-weight: bold;
+    color: #d81b60;
+    text-align: center;
+}
+
+/* ===== Formulario ===== */
+form {
+    background-color: #ffffff;
+    padding: 30px;
+    border: 2px solid #f8bbd0;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Etiquetas ===== */
+.form-label {
+    color: #c2185b;
+    font-weight: 600;
+}
+
+/* ===== Inputs y Selects ===== */
+.form-control,
+.form-select {
+    border: 2px solid #f8bbd0;
+    border-radius: 10px;
+    padding: 10px;
+    color: #6d6d6d;
+    font-size: 1rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #f06292;
+    box-shadow: 0 0 8px #f06292;
+}
+
+textarea.form-control {
+    resize: vertical;
+}
+
+.invalid-feedback {
+    font-size: 0.85rem;
+}
+
+/* ===== Vista previa de imagen ===== */
+.current-image,
+.img-preview {
+    border-radius: 10px;
+    border: 2px solid #f8bbd0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* ===== Botones ===== */
+.btn-primary {
+    background-color: #f06292;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #e91e63;
+}
+
+.btn-outline-secondary {
+    border-color: #f8bbd0;
+    color: #c2185b;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #f8bbd0;
+    color: #880e4f;
+}
+
+/* ===== Tooltip y mensajes ===== */
+.form-text {
+    font-size: 0.85rem;
+    color: #999999;
+}
+
+/* ===== Ajustes generales ===== */
+.container {
+    max-width: 900px;
+}
+
+/* ===== Validación ===== */
+.was-validated .form-control:invalid,
+.was-validated .form-select:invalid {
+    border-color: #dc3545;
+}
+
+.was-validated .form-control:valid,
+.was-validated .form-select:valid {
+    border-color: #28a745;
+}
+
+/* ===== Espacios entre botones ===== */
+.d-flex .btn {
+    min-width: 150px;
+}
+
+@media (max-width: 768px) {
+    .d-flex {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

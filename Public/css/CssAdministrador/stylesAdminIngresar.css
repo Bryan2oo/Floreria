@@ -1,0 +1,78 @@
+body {
+    background: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.admin-login-container {
+    display: flex;
+    justify-content: center;
+    padding: 50px 20px;
+    width: 100%;
+}
+
+.login-form {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 900px; /* Ancho amplio pero controlado */
+    border-top: 8px solid #f06292; /* Rosa fuerte como tu menú */
+}
+
+.login-form h1 {
+    font-size: 2.5rem;
+    color: #d81b60;
+    margin-bottom: 15px;
+}
+
+.login-form p {
+    font-size: 1.1rem;
+    color: #6d6d6d;
+    margin-bottom: 25px;
+}
+
+.form-label {
+    font-weight: 600;
+    color: #d81b60;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-control {
+    border: 2px solid #f8bbd0;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    background-color: #fff0f5;
+    color: #880e4f;
+    padding: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(248, 187, 208, 0.8);
+    transform: scale(1.02);
+}
+
+.btn-primary {
+    background-color: #f06292;
+    border: none;
+    padding: 14px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover {
+    background-color: #ec407a;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}

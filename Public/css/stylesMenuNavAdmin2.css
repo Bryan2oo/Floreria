@@ -1,0 +1,157 @@
+/* Estilos generales */
+:root {
+    --color-primario: #c71585;
+    --color-primario-hover: #e75480;
+    --color-secundario: #ffb6c1;
+    --color-texto: #333;
+    --color-texto-claro: #fff;
+    --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --transicion-rapida: all 0.2s ease;
+}
+
+/* Barra de navegación */
+.admin-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff9fb;
+    box-shadow: var(--sombra-suave);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Logo */
+.logo-link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-family: 'Montserrat', cursive;
+    color: var(--color-primario);
+}
+
+.logo-icon {
+    font-size: 2rem;
+    margin-right: 8px;
+}
+
+.logo-text {
+    font-size: 1.8rem;
+    font-weight: 700;
+    transition: var(--transicion-rapida);
+}
+
+.logo-link:hover .logo-text {
+    color: var(--color-primario-hover);
+}
+
+/* Contenedor de botones */
+.nav-buttons {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+/* Botón Regresar simple */
+.back-btn {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: var(--color-primario);
+    color: var(--color-texto-claro);
+    border-radius: 20px;
+    text-decoration: none;
+    transition: var(--transicion-rapida);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+}
+
+.back-btn:hover {
+    background-color: var(--color-primario-hover);
+    transform: translateY(-2px);
+}
+
+.btn-icon {
+    margin-right: 6px;
+}
+
+/* Estilos para el dropdown de salida */
+.dropdown-container {
+    position: relative;
+}
+
+.dropdown-btn {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: var(--transicion-rapida);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+}
+
+.logout-btn {
+    background-color: #e74c3c;
+    color: var(--color-texto-claro);
+}
+
+.logout-btn:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    min-width: 160px;
+    background-color: #f8f9fa;
+    box-shadow: var(--sombra-suave);
+    z-index: 1;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.dropdown-content.show {
+    display: block;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.logout-link {
+    color: #e74c3c;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    text-decoration: none;
+    transition: var(--transicion-rapida);
+}
+
+.logout-link:hover {
+    background-color: #f1f1f1;
+    color: #c0392b;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .logo-text {
+        font-size: 1.5rem;
+    }
+    
+    .back-btn, .dropdown-btn {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+}

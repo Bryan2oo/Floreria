@@ -1,0 +1,81 @@
+/* ======= Contenedor General ======= */
+.admin-edit-container {
+    background-color: #fff0f5;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border: 2px solid #f8bbd0;
+}
+
+/* ======= Título y Descripción ======= */
+.edit-form h1 {
+    color: #d81b60;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+}
+
+.edit-form p {
+    color: #6d6d6d;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+/* ======= Etiquetas de los campos ======= */
+.edit-form .form-label {
+    font-weight: 600;
+    color: #c2185b;
+}
+
+/* ======= Campos de entrada ======= */
+.edit-form .form-control {
+    border: 2px solid #f8bbd0;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: #fffafa;
+    color: #880e4f;
+    padding: 12px;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.edit-form .form-control:focus {
+    outline: none;
+    box-shadow: 0 0 12px rgba(248, 187, 208, 0.8);
+    transform: scale(1.02);
+}
+
+/* ======= Imagen actual ======= */
+.edit-form .img-thumbnail {
+    border: 2px solid #f8bbd0;
+    border-radius: 12px;
+}
+
+/* ======= Botones ======= */
+.edit-form button.btn-primary {
+    background-color: #f06292;
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    font-weight: bold;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.edit-form button.btn-primary:hover {
+    background-color: #ec407a;
+    transform: translateY(-2px);
+}
+
+.edit-form button.btn-secondary {
+    background-color: #ffb6c1;
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    font-weight: bold;
+    color: #880e4f;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.edit-form button.btn-secondary:hover {
+    background-color: #f48fb1;
+    transform: translateY(-2px);
+}

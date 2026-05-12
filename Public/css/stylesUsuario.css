@@ -1,0 +1,96 @@
+/* ======= Fondo general ======= */
+body {
+    background-color: #fff0f5;
+    padding-bottom: 50px;
+}
+
+/* ======= Títulos de sección (San Valentín, Día de la Madre, Cumpleaños) ======= */
+#featured-products h2 {
+    color: #d81b60;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+/* ======= Tarjetas de Productos ======= */
+.card {
+    border: 2px solid #f8bbd0;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    background-color: #ffffff;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagen de Producto */
+.card-img-top {
+    border-bottom: 2px solid #f8bbd0;
+    padding: 5px;
+    border-radius: 15px 15px 0 0;
+}
+
+/* Título y Descripción del Producto */
+.card-title {
+    color: #c2185b;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.card-text {
+    color: #6d6d6d;
+    font-size: 1rem;
+}
+
+/* Descuentos y Precios */
+.card-text.text-danger {
+    font-weight: bold;
+    color: #e53935 !important;
+}
+
+.text-success {
+    color: #388e3c !important;
+    font-weight: bold;
+}
+
+/* Botón de Comprar */
+.btn-success {
+    background-color: #f48fb1;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-weight: bold;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-success:hover {
+    background-color: #ec407a;
+    transform: translateY(-2px);
+}
+
+/* ======= Sección WhatsApp ======= */
+#whatsapp {
+    background-color: #fce4ec;
+    border-top: 2px solid #f8bbd0;
+}
+
+#whatsapp h3 {
+    color: #c2185b;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+#whatsapp .btn-success {
+    background-color: #f06292;
+    border: none;
+}
+
+#whatsapp .btn-success:hover {
+    background-color: #e91e63;
+}

@@ -1,0 +1,326 @@
+/* Fuente base y estilos generales */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    overflow-x: hidden;
+    /* Evita el desbordamiento horizontal */
+}
+
+
+/* Banner superior */
+
+.top-banner {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1.1rem;
+    animation: slideInDown 1s ease-out;
+}
+
+
+/* Barra de navegación principal */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: background-color 0.3s ease-in-out;
+    animation: fadeIn 1.5s ease-out;
+}
+
+
+/* Título de la frutería con animación */
+
+.logo {
+    font-family: 'Lobster', cursive;
+    font-size: 2.5rem;
+    color: #FF6347;
+    animation: bounceIn 2s ease-out, float 3s ease-in-out infinite;
+}
+
+
+/* Animación de rebote para el logo */
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* Animación de flotación para el logo */
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+
+/* Botones de navegación */
+
+.nav-buttons button {
+    background-color: #FF6347;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInRight 1s ease-out;
+}
+
+
+/* Efectos de hover en los botones */
+
+.nav-buttons button:hover {
+    background-color: #FF4500;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(255, 69, 0, 0.5);
+    /* Sombra para destacar */
+}
+
+
+/* Menú desplegable */
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 2rem;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 0;
+    overflow: hidden;
+    top: 90%;
+    left: 5;
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+
+/* Animación para el menú desplegable */
+
+.show {
+    display: block;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.dropdown-content a:hover {
+    background-color: #FF6347;
+    padding-left: 25px;
+    /* Efecto de deslizamiento */
+}
+
+
+/* Menú principal */
+
+.main-menu {
+    background: linear-gradient(135deg, #FFA500, #FF6347);
+    /* Naranja más suave */
+    padding: 3px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    animation: slideInUp 1s ease-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Centra el contenido verticalmente */
+    height: 60px;
+    /* Ajusta según lo necesites */
+}
+
+.main-menu ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Asegura que los elementos estén alineados en el centro */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+.main-menu ul li {
+    margin: 0 20px;
+    animation: fadeIn 1.5s ease-out;
+    display: flex;
+    align-items: center;
+    /* Centra el texto dentro del li */
+}
+
+.main-menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.3rem;
+    /* Aumentado el tamaño para mejor visibilidad */
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    /* Sombra ligera para el texto */
+}
+
+
+/* Efecto hover en los enlaces del menú */
+
+.main-menu ul li a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+    /* Fondo más oscuro al pasar el cursor */
+    color: #FF6347;
+    /* Color de texto más visible */
+    box-shadow: 0 0 15px rgba(255, 69, 0, 0.7);
+    /* Sombra al pasar el cursor */
+}
+
+
+/* Transición de color en la página activa */
+
+.main-menu ul li a.active {
+    background-color: rgba(255, 255, 255, 0.4);
+    /* Fondo más claro al estar activo */
+    color: #FF6347;
+    /* Color del texto más llamativo */
+}
+
+
+/* Fondo de la página */
+
+body {
+    background: #f9f9f9;
+    background-image: url('https://www.transparenttextures.com/patterns/soft-wallpaper.png');
+    background-repeat: repeat;
+}
+
+
+/* Estilo para los botones de cuenta y pedido */
+
+.order-btn,
+.account-btn {
+    margin-left: 20px;
+    background-color: #388E3C;
+    /* Fondo verde más oscuro */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    display: inline-flex;
+    /* Cambio a inline-flex para que los botones no se apilen */
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    /* Sombra para el botón */
+    animation: fadeInLeft 1s ease-out;
+}
+
+
+/* Estilo de los íconos dentro de los botones */
+
+.order-btn i,
+.account-btn i {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    /* Espacio entre el ícono y el texto */
+}
+
+
+/* Animaciones adicionales */
+
+@keyframes slideInDown {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInUp {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/* Efecto de suavizado al cargar */
+
+.navbar,
+.main-menu {
+    opacity: 0;
+    animation: fadeIn 2s ease-out forwards;
+}

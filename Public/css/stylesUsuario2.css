@@ -1,0 +1,133 @@
+/* ======== Fondo general ======== */
+body {
+    background-color: #fff6f9;
+    color: #333;
+}
+
+/* ======== Títulos Generales ======== */
+h1, h2, h3, h5 {
+    font-weight: 700;
+    color: #b71c1c;
+}
+
+header h1 {
+    font-size: 2.5rem;
+}
+
+header h2 {
+    color: #555;
+    font-size: 1.2rem;
+    margin-top: 15px;
+}
+
+.btn-primary, .btn-danger, .btn-warning, .btn-success {
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+/* ======== Sección de Beneficios ======== */
+#benefits h2 {
+    margin-bottom: 30px;
+}
+
+#benefits h3 {
+    color: #ad1457;
+}
+
+#benefits p {
+    color: #444;
+}
+
+/* ======== Tarjetas de Promociones ======== */
+#promotions .card {
+    border: 2px solid #f8bbd0;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#promotions .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* ======== Tarjetas de Productos Recomendados ======== */
+#featured-products .card {
+    border: 2px solid #f8bbd0;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+#featured-products .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    color: #ad1457;
+}
+
+.card-text {
+    color: #555;
+}
+
+.card-text.text-danger {
+    color: #d32f2f !important;
+}
+
+/* ======== Botones Personalizados ======== */
+.btn-primary {
+    background-color: #f06292;
+    border: none;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #e91e63;
+}
+
+.btn-danger {
+    background-color: #ef5350;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background-color: #c62828;
+}
+
+.btn-warning {
+    background-color: #ffb74d;
+    color: #fff;
+}
+
+.btn-warning:hover {
+    background-color: #ffa726;
+}
+
+.btn-success {
+    background-color: #81c784;
+    color: #fff;
+}
+
+.btn-success:hover {
+    background-color: #66bb6a;
+}
+
+/* ======== Sección WhatsApp ======== */
+#whatsapp {
+    background-color: #fce4ec;
+    border-top: 2px solid #f8bbd0;
+}
+
+#whatsapp h3 {
+    color: #ad1457;
+}
+
+#whatsapp .btn-success {
+    background-color: #f06292;
+    border: none;
+}
+
+#whatsapp .btn-success:hover {
+    background-color: #e91e63;
+} 

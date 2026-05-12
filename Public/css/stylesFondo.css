@@ -1,0 +1,58 @@
+/* Estilos exclusivos para la imagen de fondo floral */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../Img/Logo.png'); /* Cambiado a imagen floral */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    z-index: -1;
+    animation: moveBackground 30s infinite ease-in-out;
+    filter: blur(1.5px); /* Desenfoque más suave para flores */
+}
+
+/* Animación para mover el fondo floral */
+@keyframes moveBackground {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    50% {
+        transform: scale(1.05) rotate(1deg); /* Movimiento más sutil para flores */
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* Efecto de overlay para mejorar la legibilidad */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5); /* Overlay un poco más opaco para mejor contraste */
+    z-index: -1;
+}
+
+/* Estilos adicionales sugeridos para temática floral */
+.role-header h1 {
+    color: #c71585; /* Color rosa profundo para el título */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.roles-container .role-box {
+    border: 2px solid #ffb6c1; /* Borde rosado */
+    transition: all 0.3s ease;
+}
+
+.roles-container .role-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(199, 21, 133, 0.1);
+}

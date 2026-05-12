@@ -1,0 +1,110 @@
+/* ======== Estilo general de fondo ======== */
+body {
+    background-color: #fff0f5;
+    font-family: 'Arial', sans-serif;
+}
+
+/* ======== Encabezados ======== */
+h1, h5 {
+    font-weight: bold;
+    color: #d81b60;
+}
+
+.pedido-header h5, .detalle-pedido h5 {
+    color: #c2185b;
+}
+
+/* ======== Tabla principal de pedidos ======== */
+.table, .table-detalle {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #f8bbd0;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.table th, .table td, 
+.table-detalle th, .table-detalle td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #f8bbd0;
+    background-color: #ffffff;
+    color: #6d6d6d;
+}
+
+.table thead th, 
+.table-detalle thead th {
+    background-color: #f8bbd0;
+    color: #880e4f;
+    font-weight: bold;
+}
+
+/* ======== Tamaño igual entre tablas ======== */
+th:nth-child(1), td:nth-child(1) { width: 30%; }
+th:nth-child(2), td:nth-child(2) { width: 15%; }
+th:nth-child(3), td:nth-child(3) { width: 20%; }
+th:nth-child(4), td:nth-child(4) { width: 20%; }
+
+/* ======== Contenedores de pedido ======== */
+.pedido-header, .detalle-pedido {
+    background-color: #ffffff;
+    border: 2px solid #f8bbd0;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.detalle-pedido {
+    border-left: 5px solid #f48fb1;
+}
+
+/* ======== Colores de estado de pedido ======== */
+.estado-pendiente {
+    color: #ffc107;
+    font-weight: bold;
+}
+
+.estado-completado {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.estado-cancelado {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.estado-reservado {
+    color: #17a2b8;
+    font-weight: bold;
+}
+
+/* ======== Descuentos ======== */
+.badge-descuento {
+    font-size: 0.75em;
+}
+
+.text-success {
+    color: #4caf50 !important;
+}
+
+.text-muted {
+    color: #999999 !important;
+}
+
+/* ======== Botones ======== */
+.btn-primary {
+    background-color: #f06292;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background-color: #e91e63;
+}
+
+.form-select-sm {
+    border-radius: 8px;
+}

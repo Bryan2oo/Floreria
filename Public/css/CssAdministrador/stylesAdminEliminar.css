@@ -1,0 +1,60 @@
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    width: 300px;
+    padding: 20px;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.tabla th,
+.tabla td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+.btn {
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.btn-rojo {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+}
+
+.btn-gris {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+}
+
+.alerta-exito {
+    padding: 10px;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}

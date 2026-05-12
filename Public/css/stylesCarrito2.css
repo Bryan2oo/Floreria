@@ -1,0 +1,64 @@
+/* ======== Estilo Fondo Carrito ======== */
+body {
+    background-color: #fff6f9;
+    color: #333;
+}
+
+/* ======== Título del Carrito ======== */
+h1 {
+    color: #b71c1c;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+/* ======== Tabla del Carrito ======== */
+table {
+    background-color: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+th {
+    background-color: #f8bbd0;
+    color: #880e4f;
+    text-align: center;
+}
+
+td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* ======== Botón Eliminar ======== */
+.btn-danger {
+    background-color: #f44336;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #c62828;
+}
+
+/* ======== Botón Reservar ======== */
+.btn-success {
+    background-color: #81c784;
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #66bb6a;
+}
+
+/* ======== Total Carrito ======== */
+h3 {
+    text-align: right;
+    color: #ad1457;
+    font-weight: bold;
+}
+
+/* ======== Badge Descuento ======== */
+.badge.bg-danger {
+    background-color: #e91e63 !important;
+}

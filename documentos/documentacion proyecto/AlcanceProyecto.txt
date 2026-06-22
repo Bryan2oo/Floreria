@@ -1,0 +1,216 @@
+LA OFICINA DE PROYECTOS DE INFORMÁTICA
+www.pmoinformatica.com
+
+ALCANCE DEL PROYECTO
+Florería J&A — Sistema Web
+Fecha: 16/03/2026
+================================================================
+
+TABLA DE CONTENIDO
+------------------
+1.  Propósito del documento
+2.  Información General del Proyecto
+3.  Descripción del producto
+4.  Alcance del producto
+5.  Alcance del Proyecto
+6.  Exclusiones
+7.  Requerimientos de alto nivel
+8.  Restricciones
+9.  Entregables Principales
+10. Criterio de aceptación
+11. Aprobaciones
+12. Control de cambios
+
+
+================================================================
+1. PROPÓSITO DEL DOCUMENTO
+================================================================
+
+En el presente documento se define el alcance del proyecto Florería J&A
+– Sistema Web, especificando sus respectivos objetivos, entregables,
+límites, supuestos y criterios de aceptación. Este documento servirá
+como referencia para gestionar el alcance y el control de cambios
+durante el ciclo de vida del proyecto, asegurando una correcta
+alineación con los requisitos establecidos en el acta de constitución.
+
+
+================================================================
+2. INFORMACIÓN GENERAL DEL PROYECTO
+================================================================
+
+Nombre del proyecto    : Florería J&A — Sistema Web
+Cliente / Usuario      : Florería J&A
+Patrocinador           : Doris Flores - Gerente
+Gerente del proyecto   : Bryan Caguana
+Fecha de inicio        : 16/03/2026
+Fecha de fin           : 25/07/2026
+Duración estimada      : 4 meses
+Versión del documento  : 1.0
+
+
+================================================================
+3. DESCRIPCIÓN DEL PRODUCTO
+================================================================
+
+El sistema Florería J&A es una aplicación web fundamentada en el modelo
+vista controlador (MVC) cuyo propósito general es centralizar y
+automatizar las operaciones, abarcando desde la gestión de inventarios
+y la gestión de clientes, hasta el seguimiento en tiempo real de los
+pedidos.
+
+El producto de software final garantizará una operatividad escalable y
+robusta, optimizando las operaciones comerciales y mejorando la
+experiencia de usuarios mediante un entorno digital agradable, seguro
+y productivo.
+
+
+================================================================
+4. ALCANCE DEL PRODUCTO
+================================================================
+
+ID | Entregable / Módulo                  | Descripción                                                              | Criterio de aceptación                                        | Responsable                      | Fecha estimada
+---|--------------------------------------|--------------------------------------------------------------------------|---------------------------------------------------------------|----------------------------------|---------------
+P1 | Diseño de la Base de Datos           | MER, diseño conceptual, físico y lógico (RNF-08)                        | Normalización 4to nivel                                       | Omar Figueroa / Samuel Yambay    | 15/05/2026
+P2 | Planificación de Estructura de       | Mockups, prototipo de alta fidelidad (RNF-07)                           | Estándares de diseño, navegación y guía de estilo consistente | Omar Figueroa / Samuel Yambay    | 15/05/2026
+   | Interfaces                           |                                                                          |                                                               |                                  |
+P3 | Autenticación de usuarios            | Módulo de registro y login (RF-01 y RF-02) y gestión de contraseñas     | Login funcional con correo y contraseña                       | Bryan Caguana / Franklin Acero   | 15/05/2026
+P4 | Inventario y productos               | Gestión de catálogo, productos, categorías, stock y promociones          | CRUD funcional, búsqueda < 1 s y carga del catálogo < 3 s    | Walter Reyes / Daryend Castillo  | 15/05/2026
+   |                                      | (RF-04, RF-05 y RF-06)                                                   |                                                               |                                  |
+P5 | Pedidos y carrito                    | Módulo de carrito de compras, eliminación de productos y generación de   | Flujo de compra completo sin errores críticos                 | Daryend Castillo / Omar Figueroa | 05/06/2026
+   |                                      | pedidos (RF-07)                                                          |                                                               |                                  |
+P6 | Reportes                             | Generación de informes de venta y stock                                  | Archivos PDF generados con datos reales del sistema           | Alex Lema / Samuel Yambay        | 25/06/2026
+P7 | Documentación y manuales             | Manual de usuario (admin/cliente), documentación técnica y arquitectura  | Documentación completa sin errores críticos                   | Samuel Yambay                    | 25/07/2026
+
+
+================================================================
+5. ALCANCE DEL PROYECTO
+================================================================
+
+Fase / Actividad                  | Descripción                                                                                         | Entregables asociados
+----------------------------------|-----------------------------------------------------------------------------------------------------|--------------------------------------------------
+Planificación                     | Definición de metodología, entrevista inicial con interesados, determinación del contexto y          | Entrevista: preguntas, grabaciones, diagramas y
+                                  | aproximación a solución.                                                                            | bocetos iniciales.
+Análisis y requisitos             | Definición de RFs, RNFs y validación con el Product Owner.                                          | Documento de requisitos (SRS).
+Formalización del Plan            | Elaboración y aprobación del acta constitutiva y planificación de sprints.                          | Acta de constitución y plan de sprints.
+Diseño y arquitectura             | Definición del patrón arquitectónico, tecnologías, marco de trabajo y esquema de despliegue.        | Diagramas UML, diccionario de datos y mockups.
+Diseño de Estructura de           | Definición de guía de estilo e implementación de mockups de interfaz.                               | Prototipo de alta fidelidad.
+Interfaces                        |                                                                                                     |
+Desarrollo e implementación       | Construcción de módulos (cliente, inventario y pedidos) en PHP y Bootstrap.                         | Esquema de trabajo, ramificación local y deploy,
+                                  |                                                                                                     | versiones en GitHub.
+Pruebas y validación              | Pruebas QA funcionales, de despliegue, de seguridad, implementación de reportes PDF y               | Informe de pruebas, reportes PDFs funcionales.
+                                  | validación de seguridad.                                                                            |
+Cierre y entrega                  | Despliegue en entorno de pruebas, entrega de documentos y acta de aceptación.                       | Producto final, manuales y acta firmada.
+
+
+================================================================
+6. EXCLUSIONES
+================================================================
+
+- No se contempla el desarrollo de una aplicación móvil nativa en esta
+  versión.
+- No se integrarán pasarelas de pago reales; el proceso de pago será
+  referencial.
+- No se incluye soporte posterior a la entrega final en julio 2026.
+- No se desarrollarán módulos adicionales fuera del alcance aprobado
+  (RF-01 a RF-11).
+- Las funcionalidades de envío de correos de recuperación dependerán
+  de la configuración del servidor de producción (no garantizado en
+  localhost).
+
+
+================================================================
+7. REQUERIMIENTOS DE ALTO NIVEL
+================================================================
+
+- El equipo de desarrollo cuenta con conocimientos previos en PHP, HTML,
+  JavaScript, MySQL y arquitectura MVC, desarrollo y ramificación en
+  entorno GitHub, y contenerización.
+- Se dispone de acceso a los servidores necesarios para el desarrollo y
+  pruebas del sistema.
+- La Florería J&A proporcionará la información necesaria sobre sus
+  productos, categorías y procesos internos.
+- Los usuarios finales (clientes y administradores) dispondrán de
+  conexión a Internet y dispositivo compatible.
+- Se utilizará la metodología SCRUM para la planificación y ejecución
+  de los sprints.
+
+
+================================================================
+8. RESTRICCIONES
+================================================================
+
+- El proyecto deberá completarse dentro del período académico, con
+  entrega final a más tardar en julio 2026.
+- El presupuesto es limitado al entorno académico, priorizando
+  herramientas de código abierto (PHP, MySQL, VS Code).
+- El sistema será desarrollado para entorno web; la base de datos se
+  alojará en MySQL local (localhost) para el entorno de desarrollo.
+- El código debe seguir estrictamente las convenciones de la
+  arquitectura MVC (Modelos, Vistas y Controladores en carpetas
+  separadas).
+
+
+================================================================
+9. ENTREGABLES PRINCIPALES
+================================================================
+
+Entregable                    | Descripción                                              | Fecha estimada | Responsable               | Criterio de aceptación
+------------------------------|----------------------------------------------------------|----------------|---------------------------|--------------------------------
+Documento de análisis y       | Especificaciones funcionales, técnicas y arquitectura MVC | 20/04/2026     | Walter Reyes              | Aprobación por patrocinador
+diseño                        |                                                          |                |                           | y docente.
+Software base                 | Aplicación web funcional en PHP y Bootstrap              | 15/07/2026     | Daryend Castillo / Equipo | Cumple el 100% con los RFs
+                              |                                                          |                |                           | técnicos.
+Base de datos relacional      | Esquema en MySQL con tablas de productos, clientes        | 15/05/2026     | Alex Lema                 | Validada por administrador
+                              | y pedidos                                                |                |                           | de BD.
+Manuales técnicos y de        | Documentación completa para administradores y cliente     | 25/07/2026     | Samuel Yambay             | Sin errores críticos.
+usuario                       |                                                          |                |                           |
+Acta de aceptación            | Entregable final validado por el cliente y docente        | 25/07/2026     | Bryan Caguana             | Firma de Doris Flores.
+
+
+================================================================
+10. CRITERIO DE ACEPTACIÓN
+================================================================
+
+Los entregables del proyecto se aceptarán cuando:
+
+- Cumplan el 100% de los requisitos funcionales esenciales descritos
+  en el acta.
+- Todas las funcionalidades estén implementadas bajo el patrón de
+  arquitectura MVC, con validación de estándares de calidad
+  arquitectónica.
+- Existan constancias documentadas de funcionamiento y pruebas
+  exhaustivas de uso.
+- Al menos el 90% de los casos de prueba definidos por el Analista de
+  Calidad se ejecuten con éxito.
+- Las contraseñas almacenadas en la base de datos estén encriptadas.
+- El sistema demuestre los tiempos de respuesta establecidos
+  (carga < 3 s y búsqueda < 1 s).
+- Se entregue el repositorio de código en GitHub junto con la
+  documentación técnica y funcional completa.
+- El Patrocinador firme el acta de aceptación final.
+
+
+================================================================
+11. APROBACIONES
+================================================================
+
+Rol                          | Nombre        | Firma | Fecha
+-----------------------------|---------------|-------|------
+Gerente de proyecto          | Bryan Caguana |       |
+Patrocinador                 | Doris Flores  |       |
+Representante del cliente    | Florería J&A  |       |
+
+
+================================================================
+12. CONTROL DE CAMBIOS
+================================================================
+
+Versión | Fecha      | Descripción de cambio                      | Autor / Revisor
+--------|------------|---------------------------------------------|----------------
+1.0     | 16/03/2026 | Versión inicial del documento de alcance    | Bryan Caguana
+
+
+================================================================
+La Oficina de Proyectos de Informática
+http://www.pmoinformatica.com
+================================================================

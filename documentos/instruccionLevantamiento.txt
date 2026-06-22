@@ -1,0 +1,271 @@
+================================================================================
+          INSTRUCCIONES DE LEVANTAMIENTO Y CONFIGURACIÓN - FLORERÍA J&A
+================================================================================
+
+Este documento contiene las especificaciones y pasos técnicos necesarios para realizar
+el levantamiento local del sistema de la Florería J&A en un entorno con XAMPP activo, 
+así como un análisis detallado de la base de datos y observaciones críticas de código.
+
+--------------------------------------------------------------------------------
+1. REQUISITOS PREVIOS Y ENTORNO XAMPP
+--------------------------------------------------------------------------------
+* Ubicación del Proyecto:
+  El código fuente debe encontrarse en:
+  C:\xampp\htdocs\floreria
+
+* Controladores XAMPP activos:
+  - Apache (Servicio Web)
+  - MySQL (Servicio de Base de Datos)
+
+--------------------------------------------------------------------------------
+2. CONFIGURACIÓN DE LA BASE DE DATOS (MySQL)
+--------------------------------------------------------------------------------
+Siga los siguientes pasos para crear e inicializar la base de datos:
+
+1. Abra su navegador y acceda a phpMyAdmin:
+   http://localhost/phpmyadmin/
+
+2. Cree una nueva base de datos:
+   - Nombre: floreria_db
+   - Cotejamiento (Collation): utf8mb4_general_ci o utf8mb4_unicode_ci
+
+3. Diríjase a la pestaña "SQL" de la base de datos recién creada y ejecute el 
+   siguiente script de creación de tablas e inserción de datos iniciales:
+
+-- =============================================================================
+-- SCRIPT SQL DE CREACIÓN E INICIALIZACIÓN
+-- =============================================================================
+
+CREATE TABLE IF NOT EXISTS clientes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_completo VARCHAR(150) NOT NULL,
+    correo VARCHAR(100) NOT NULL UNIQUE,
+    telefono VARCHAR(20) NOT NULL,
+    direccion TEXT NOT NULL,
+    contrasena VARCHAR(255) NOT NULL,
+    token_recuperacion VARCHAR(100) DEFAULT NULL,
+    token_expiracion DATETIME DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Nota: El código tiene referencias a 'administrador' (singular) y 'administradores' (plural).
+-- Se crean ambas para garantizar compatibilidad con los diferentes controladores del proyecto.
+CREATE TABLE IF NOT EXISTS administrador (
+    correo VARCHAR(100) PRIMARY KEY,
+    contrasena VARCHAR(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS administradores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    contrasena VARCHAR(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS productos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    tipo VARCHAR(50) NOT NULL,
+    nombre VARCHAR(100) NOT NULL,
+    descripcion TEXT,
+    precio DECIMAL(10, 2) NOT NULL,
+    stock INT NOT NULL,
+    imagen LONGBLOB
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS categorias_ocasion (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    descripcion TEXT,
+    imagen LONGBLOB
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS promociones (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    descuento_porcentaje INT NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS producto_categoria (
+    producto_id INT NOT NULL,
+    categoria_id INT NOT NULL,
+    PRIMARY KEY (producto_id, categoria_id),
+    FOREIGN KEY (producto_id) REFERENCES productos(id) ON DELETE CASCADE,
+    FOREIGN KEY (categoria_id) REFERENCES categorias_ocasion(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS promocion_producto (
+    producto_id INT NOT NULL,
+    promocion_id INT NOT NULL,
+    PRIMARY KEY (producto_id, promocion_id),
+    FOREIGN KEY (producto_id) REFERENCES productos(id) ON DELETE CASCADE,
+    FOREIGN KEY (promocion_id) REFERENCES promociones(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS pedidos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cliente_id INT NOT NULL,
+    estado VARCHAR(50) NOT NULL DEFAULT 'carrito',
+    total DECIMAL(10, 2) DEFAULT 0.00,
+    fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (cliente_id) REFERENCES clientes(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS detalle_pedido (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    pedido_id INT NOT NULL,
+    producto_id INT NOT NULL,
+    cantidad INT NOT NULL,
+    FOREIGN KEY (pedido_id) REFERENCES pedidos(id) ON DELETE CASCADE,
+    FOREIGN KEY (producto_id) REFERENCES productos(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- =============================================================================
+-- INSERCIÓN DE DATOS DE PRUEBA (MOCK DATA)
+-- =============================================================================
+
+-- Administrador de Prueba (Contraseña en texto plano para validarAdmin):
+INSERT INTO administrador (correo, contrasena) 
+VALUES ('admin@floreria.com', 'admin123')
+ON DUPLICATE KEY UPDATE contrasena=contrasena;
+
+INSERT INTO administradores (email, contrasena) 
+VALUES ('admin@floreria.com', 'admin123')
+ON DUPLICATE KEY UPDATE contrasena=contrasena;
+
+-- Cliente de Prueba (Contraseña: 'cliente123' encriptada con Bcrypt):
+INSERT INTO clientes (nombre_completo, correo, telefono, direccion, contrasena)
+VALUES ('Juan Pérez', 'cliente@floreria.com', '0999999999', 'Av. Amazonas N24-10', '$2y$10$U265vUv7sJ/HwS7gUe1f0e4O58n6u5bW6b/73B5Qyv2kC1x4E9oXy')
+ON DUPLICATE KEY UPDATE correo=correo;
+
+-- Categorías de Ocasión (IDs fijos para coincidir con la lógica del Index de clientes):
+INSERT INTO categorias_ocasion (id, nombre, descripcion) VALUES
+(1, 'Día de la Madre', 'Arreglos especiales para celebrar al ser más querido.'),
+(2, 'San Valentín', 'Rosas rojas y detalles románticos para tu media naranja.'),
+(3, 'Cumpleaños', 'Arreglos coloridos y alegres para desear un feliz día.');
+
+-- Promociones
+INSERT INTO promociones (descuento_porcentaje) VALUES 
+(10), 
+(15), 
+(20), 
+(50);
+
+-- Productos Iniciales
+INSERT INTO productos (tipo, nombre, descripcion, precio, stock) VALUES
+('Rosas', 'Caja de Rosas Rojas', 'Caja premium de 24 rosas rojas importadas.', 45.00, 30),
+('Temporada', 'Cesta de Girasoles', 'Cesta rústica con 6 girasoles y flores de estación.', 35.00, 15),
+('Orquídeas', 'Orquídea Blanca Exótica', 'Planta de orquídea blanca de dos varas en maceta de cerámica.', 60.00, 8);
+
+-- Relacionar productos con categorías
+INSERT INTO producto_categoria (producto_id, categoria_id) VALUES
+(1, 2), -- Rosas rojas para San Valentín
+(2, 3); -- Girasoles para Cumpleaños
+
+-- Relacionar productos con promociones
+INSERT INTO promocion_producto (producto_id, promocion_id) VALUES
+(1, 1); -- Rosas Rojas con 10% de descuento
+
+--------------------------------------------------------------------------------
+3. ACCESO A LAS INTERFACES DEL SISTEMA
+--------------------------------------------------------------------------------
+Una vez configurada la base de datos, puede abrir los siguientes enlaces en su navegador:
+
+* Interfaz de Cliente (Página Principal):
+  http://localhost/floreria/IndexP.php
+
+  - Para iniciar sesión como cliente, dé clic en el botón "👤 Cuenta" en la parte
+    superior derecha y seleccione el rol de "Cliente".
+  - Correo de prueba: cliente@floreria.com
+  - Contraseña de prueba: cliente123
+
+* Interfaz de Administración:
+  http://localhost/floreria/View/VAdminLogin.php
+
+  - Correo de prueba: admin@floreria.com
+  - Contraseña de prueba: admin123
+
+--------------------------------------------------------------------------------
+4. INFORME DE DIAGNÓSTICO TÉCNICO Y ERRORES DETECTADOS
+--------------------------------------------------------------------------------
+Durante el análisis estático del código fuente, se identificaron varios defectos
+críticos que impedirán el correcto funcionamiento del sistema en una instalación limpia. 
+Se detallan a continuación junto con sus respectivas soluciones recomendadas:
+
+[ERROR CRÍTICO 1] Inconsistencia en la Conexión de Base de Datos (PDO vs MySQLi)
+* Ubicación:
+  - Config/conexion.php (Define la conexión MySQLi como $conectBd)
+  - Model/MIniciar.php y Controller/CValidarAdmin.php (Intentan usar $conn->prepare que es PDO)
+* Descripción:
+  El archivo de conexión original inicializa la base de datos usando `mysqli_connect` 
+  guardado en `$conectBd`. Sin embargo, algunos scripts intentan preparar consultas 
+  usando la variable `$conn` con llamadas de estilo PDO (p. ej. `bindParam`), lo cual 
+  causará un error fatal (Fatal Error: Call to a member function prepare() on null).
+* Solución Recomendada:
+  Modificar el archivo `Config/conexion.php` para definir ambas variables ($conectBd y $conn) 
+  e implementar el puente de compatibilidad. Reemplace el contenido de `Config/conexion.php` por:
+  -------------------------------------------------------------
+  <?php
+  // Conexión MySQLi (usada por la mayoría de las vistas/modelos)
+  $conectBd = mysqli_connect('localhost', 'root', '', 'floreria_db');
+
+  if (!$conectBd) {
+      die("Error de conexión MySQLi: " . mysqli_connect_error());
+  }
+
+  // Conexión PDO (usada por MIniciar.php y CValidarAdmin.php)
+  try {
+      $conn = new PDO("mysql:host=localhost;dbname=floreria_db;charset=utf8", "root", "");
+      $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  } catch (PDOException $e) {
+      // Registrar error o manejarlo silenciosamente para no interrumpir mysqli
+  }
+  ?>
+  -------------------------------------------------------------
+
+[ERROR CRÍTICO 2] Errores Estructurales en el Dashboard del Administrador
+* Ubicación:
+  - View/VAdmin.php (Líneas 124, 128, 136, 141, 146, 153, 156, 161, 167)
+* Descripción:
+  1. Intenta incluir el archivo de conexión como `../Model/conexion.php` (el cual no existe, 
+     debiendo ser `../Config/conexion.php`).
+  2. Intenta ejecutar consultas mysqli utilizando la variable `$conexion` (la cual no existe,
+     debiendo ser `$conectBd`).
+  3. Ejecuta una consulta para obtener los últimos pedidos uniendo la tabla `usuarios` y la 
+     columna `usuario_id` (`JOIN usuarios u ON p.usuario_id = u.id`). Sin embargo, en el resto
+     de la base de datos la tabla de usuarios se llama `clientes` y el campo es `cliente_id`.
+  4. La consulta de categorías asume la existencia de una tabla `categorias` y una columna
+     `categoria_id` dentro de `productos`, ignorando la estructura relacional intermedia de
+     `producto_categoria` y `categorias_ocasion`.
+* Solución Recomendada:
+  Reemplazar las consultas problemáticas en `View/VAdmin.php` con la estructura real 
+  definida en la base de datos y cambiar la inclusión al archivo correcto.
+
+[BRECHA DE SEGURIDAD] Acceso sin Autenticación en Vistas Administrativas
+* Ubicación:
+  - Todos los archivos dentro de View/VAdministrador/ (VAdminMostrarD.php, VAdminEditarD.php, etc.)
+* Descripción:
+  A diferencia de `View/VAdmin.php`, los archivos que listan, editan, insertan y eliminan productos
+  (los cuales están dentro del subdirectorio `VAdministrador/`) no contienen ninguna validación 
+  de sesión. Cualquier usuario malicioso puede acceder directamente escribiendo la URL completa en el 
+  navegador y realizar cambios en la base de datos sin haber iniciado sesión como administrador.
+* Solución Recomendada:
+  Agregar la siguiente validación al inicio de cada archivo PHP en la carpeta `View/VAdministrador/`:
+  -------------------------------------------------------------
+  <?php
+  session_start();
+  if (!isset($_SESSION["admin"])) {
+      header("Location: ../VAdminLogin.php");
+      exit();
+  }
+  ?>
+  -------------------------------------------------------------
+
+[BUG MENOR] Rutas Relativas Rotas en el Menú de Navegación
+* Ubicación:
+  - Model/MMenuNav.php
+* Descripción:
+  El menú de navegación principal se incluye en páginas en diferentes niveles de directorios 
+  (p. ej., desde la raíz en `IndexP.php` y desde subdirectorios en `View/VIngresarD.php`). 
+  Al utilizar rutas relativas estáticas como `Controller/usercontrolador.php` o `../Public/js/...`, 
+  los enlaces se rompen dependiendo de dónde se incluye el archivo.
+* Solución Recomendada:
+  Definir una constante de URL Base en un archivo común o emplear rutas absolutas del servidor 
+  (como `/floreria/Controller/...`) para asegurar el direccionamiento dinámico correcto.
+================================================================================

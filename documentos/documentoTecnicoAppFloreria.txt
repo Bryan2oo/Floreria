@@ -1,0 +1,331 @@
+================================================================================
+           DOCUMENTO DE ESPECIFICACIÓN Y ARQUITECTURA TÉCNICA - FLORERÍA J&A
+================================================================================
+SISTEMA WEB DE OPERACIONES, INVENTARIO Y PEDIDOS EN TIEMPO REAL
+Desarrollado para: Florería J&A
+Desarrollado por: CodeFlowers S.A.
+Contexto: Académico - Escuela Superior Politécnica de Chimborazo (ESPOCH)
+Fecha del Documento: 08 de Junio, 2026
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+1. INFORMACIÓN GENERAL Y RESUMEN DEL SISTEMA
+--------------------------------------------------------------------------------
+El sistema de la Florería J&A es una solución web integral diseñada para la 
+gestión automatizada y centralizada de los ciclos operativos de venta al detalle 
+de arreglos florales y plantas ornamentales. Su propósito principal es optimizar 
+el control de inventarios, la administración de la cartera de clientes, el 
+seguimiento del estado de pedidos y la reportabilidad del negocio.
+
+El sistema cuenta con dos roles diferenciados:
+- Cliente: Permite navegar el catálogo de flores ecuatorianas, interactuar con 
+  las promociones de días especiales (Día de la Madre, San Valentín, Cumpleaños), 
+  gestionar un carrito de compras y realizar la reserva en tiempo real de productos.
+- Administrador: Permite un control absoluto del inventario mediante operaciones 
+  CRUD (Crear, Leer, Actualizar, Eliminar), supervisar los pedidos entrantes y sus 
+  estados de distribución, visualizar métricas KPI del mes y exportar reportes 
+  administrativos detallados en formato PDF.
+
+--------------------------------------------------------------------------------
+2. ARQUITECTURA Y ESTRUCTURA DEL CÓDIGO
+--------------------------------------------------------------------------------
+El sistema está desarrollado bajo el patrón de diseño arquitectónico 
+Modelo-Vista-Controlador (MVC), el cual permite separar la lógica de negocio, 
+la interfaz de usuario y el acceso a datos.
+
+Estructura de Directorios del Proyecto:
+├── Config/
+│   └── conexion.php               <- Configuración y conexiones MySQLi y PDO a la Base de Datos.
+├── Controller/
+│   ├── CAdministrador/            <- Controladores específicos para operaciones del administrador.
+│   │   ├── CAdminBuscar.php
+│   │   ├── CAdminCambiarEstado.php
+│   │   ├── CAdminEditar.php
+│   │   ├── CAdminEliminar.php
+│   │   └── CAdminIngresar.php
+│   ├── CAdminLogin.php            <- Inicio de sesión de administrador.
+│   ├── CIniciarSesion.php         <- Inicio de sesión de clientes.
+│   ├── Cregistro.php              <- Registro de nuevos clientes.
+│   ├── GenerarReporteCategorias.php<- Generación de PDF de ventas por categoría.
+│   ├── GenerarReporteDescuentos.php  <- Generación de PDF de productos con descuento.
+│   ├── GenerarReporteMasVendidos.php <- Generación de PDF de los productos más vendidos.
+│   ├── GenerarReporteProductos.php  <- Generación de PDF del catálogo completo.
+│   └── usercontrolador.php        <- Lógica genérica de controlador de usuario.
+├── Model/
+│   ├── MAdministrador/            <- Modelos y componentes de navegación del administrador.
+│   │   ├── MBuscar.php
+│   │   ├── MMenuNavAdmin.php
+│   │   ├── MMenuNavAdmin2.php
+│   │   └── MMenuNavAdmin3.php
+│   ├── MIniciar.php               <- Modelo inicial de validación de sesiones.
+│   ├── MMenuNav.php               <- Navegación dinámica de clientes.
+│   ├── MRolIn.php                 <- Modelo para control de roles de usuario.
+│   ├── Musuario.php               <- Lógica CRUD y autenticación de clientes y administradores.
+│   ├── eliminarDelCarrito.php     <- Eliminación de ítems del carrito en BD.
+│   └── reservarCarrito.php        <- Confirmación y procesamiento de la orden del carrito.
+├── View/
+│   ├── VAdministrador/            <- Vistas del módulo administrativo.
+│   │   ├── VAdminBuscarD.php
+│   │   ├── VAdminEditarD.php
+│   │   ├── VAdminEliminarD.php
+│   │   ├── VAdminIngresarCat.php
+│   │   ├── VAdminIngresarD.php
+│   │   ├── VAdminMostrar1D.php
+│   │   ├── VAdminMostrarD.php
+│   │   ├── VAdminPedidos.php
+│   │   └── VAdminReportes.php
+│   ├── VFloreria/                 <- Vistas del catálogo organizadas por festividades.
+│   │   ├── cumple.php
+│   │   ├── diamadre.php
+│   │   └── sanvalentin.php
+│   ├── Carrito.php                <- Vista detallada del carrito de compras del cliente.
+│   ├── Reporte1.php               <- Clase personalizada FPDF para reportes.
+│   ├── Reporte2.php
+│   ├── Reporte3.php
+│   ├── Reporte4.php
+│   ├── VAdmin.php                 <- Dashboard principal del administrador.
+│   ├── VAdminLogin.php            <- Formulario de login del administrador.
+│   ├── VConfirmacion.php          <- Vista de éxito en la reserva de productos.
+│   ├── VIngresarD.php             <- Selector de inicio de sesión de roles.
+│   ├── VInterfazUsuario.php       <- Interfaz principal de catálogo de clientes.
+│   ├── VRegistro.php              <- Formulario de registro de clientes.
+│   ├── VSesionD.php               <- Formulario de login de clientes.
+│   ├── login.php
+│   ├── procesarPedido.php
+│   └── verProducto.php            <- Ficha individual del producto y selección de cantidad.
+├── Public/                        <- Activos públicos del sistema.
+│   ├── css/                       <- Hojas de estilo CSS organizadas para cliente y admin.
+│   ├── js/                        <- Scripts de comportamiento JavaScript.
+│   └── Img/                       <- Imágenes del sistema y recursos multimedia.
+├── documentos/                    <- Documentación y manuales del sistema.
+│   ├── manual_sistema.pdf
+│   ├── instruccionLevantamiento.txt
+│   └── documentoTecnicoAppFloreria.txt <- [Este documento]
+├── fpdf182/                       <- Biblioteca externa FPDF para la generación de reportes en PDF.
+└── uploads/                       <- Directorio de almacenamiento temporal de archivos subidos.
+
+--------------------------------------------------------------------------------
+3. TECNOLOGÍAS Y LIBRERÍAS DE LA PLATAFORMA
+--------------------------------------------------------------------------------
+El entorno de ejecución y desarrollo del sistema utiliza tecnologías web robustas:
+
+- Backend:
+  * PHP 8.x: Utilizado para la lógica del servidor, procesamiento de peticiones, 
+    gestión de sesiones y conectividad con la base de datos a través de sentencias 
+    preparadas (Prepared Statements) para mitigar vulnerabilidades de Inyección SQL.
+- Base de Datos:
+  * MySQL / MariaDB (Motor InnoDB): Permite garantizar la integridad referencial 
+    mediante claves foráneas, restricciones de borrado en cascada (ON DELETE CASCADE) 
+    y soporte de transacciones seguras (ACID) para el procesamiento de pedidos.
+- Frontend:
+  * HTML5 y CSS3: Diseño adaptado para la personalización estética del sitio.
+  * Bootstrap 5.x: Framework de estilos CSS responsive que asegura la compatibilidad 
+    con computadoras de escritorio, tablets y dispositivos móviles.
+  * Chart.js 4.x: Utilizado en el panel administrativo para representar gráficos 
+    estadísticos dinámicos (gráfico de barras para ventas por categoría).
+  * FontAwesome 6.x: Iconografía web para botones e indicadores del dashboard.
+- Reportabilidad y Extras:
+  * FPDF 1.82: Biblioteca externa escrita en PHP que permite generar archivos PDF 
+    directamente desde el servidor sin dependencias externas.
+
+--------------------------------------------------------------------------------
+4. DICCIONARIO Y ESQUEMA DE LA BASE DE DATOS
+--------------------------------------------------------------------------------
+La base de datos relacional del sistema se denomina `floreria_db` y está 
+compuesta por las siguientes tablas principales:
+
+A. TABLA: clientes
+   * id (INT, PK, Auto_Increment): Identificador único de cada cliente.
+   * nombre_completo (VARCHAR 150): Nombre y apellido del usuario.
+   * correo (VARCHAR 100, Unique): Correo electrónico (utilizado para login).
+   * telefono (VARCHAR 20): Teléfono de contacto.
+   * direccion (TEXT): Dirección del domicilio de entrega.
+   * contrasena (VARCHAR 255): Contraseña encriptada con Bcrypt.
+   * token_recuperacion (VARCHAR 100, Nullable): Token para restablecimiento.
+   * token_expiracion (DATETIME, Nullable): Expiración del token de recuperación.
+
+B. TABLA: administrador
+   * correo (VARCHAR 100, PK): Correo electrónico del administrador.
+   * contrasena (VARCHAR 255): Contraseña en texto plano para el login de admin.
+
+C. TABLA: administradores
+   * id (INT, PK, Auto_Increment): ID del administrador secundario.
+   * email (VARCHAR 100, Unique): Correo alternativo de administración.
+   * contrasena (VARCHAR 255): Contraseña en texto plano.
+
+D. TABLA: productos
+   * id (INT, PK, Auto_Increment): Identificador del producto floral.
+   * tipo (VARCHAR 50): Categoría física o tipo de flor (ej. Rosas, Girasoles).
+   * nombre (VARCHAR 100): Nombre descriptivo del arreglo.
+   * descripcion (TEXT): Características detalladas del arreglo floral.
+   * precio (DECIMAL 10,2): Costo de venta al público.
+   * stock (INT): Cantidad física real disponible en el inventario.
+   * imagen (LONGBLOB): Archivo de imagen codificado en binario almacenado en BD.
+
+E. TABLA: categorias_ocasion
+   * id (INT, PK, Auto_Increment): ID de la festividad u ocasión.
+   * nombre (VARCHAR 100): Nombre de la ocasión (ej. Día de la Madre, San Valentín).
+   * descripcion (TEXT): Breve reseña de la promoción asociada.
+   * imagen (LONGBLOB): Imagen representativa de la festividad.
+
+F. TABLA: promociones
+   * id (INT, PK, Auto_Increment): Identificador de la promoción.
+   * descuento_porcentaje (INT): Porcentaje de rebaja aplicable (ej. 10, 15, 20).
+
+G. TABLA: producto_categoria (Tabla Intermedia M:N)
+   * producto_id (INT, FK -> productos.id): Enlace al producto.
+   * categoria_id (INT, FK -> categorias_ocasion.id): Enlace a la festividad.
+
+H. TABLA: promocion_producto (Tabla Intermedia M:N)
+   * producto_id (INT, FK -> productos.id): Enlace al producto.
+   * promocion_id (INT, FK -> promociones.id): Enlace al descuento.
+
+I. TABLA: pedidos
+   * id (INT, PK, Auto_Increment): Identificador único de orden de venta.
+   * cliente_id (INT, FK -> clientes.id): Cliente que genera la compra.
+   * estado (VARCHAR 50): Estados posibles ('carrito', 'pendiente', 'procesando', 'reservado', 'completado', 'cancelado').
+   * total (DECIMAL 10,2): Sumatoria monetaria final del pedido.
+   * fecha (DATETIME): Fecha y hora de creación/actualización del pedido.
+
+J. TABLA: detalle_pedido (Tabla Intermedia M:N)
+   * id (INT, PK, Auto_Increment): Identificador del renglón de detalle.
+   * pedido_id (INT, FK -> pedidos.id): Enlace al pedido contenedor.
+   * producto_id (INT, FK -> productos.id): Enlace al producto seleccionado.
+   * cantidad (INT): Cantidad reservada/comprada por el cliente.
+
+--------------------------------------------------------------------------------
+5. DETALLE DE FUNCIONALIDADES E IMPLEMENTACIÓN
+--------------------------------------------------------------------------------
+
+MÓDULO DE CLIENTES:
+1. Autenticación y Registro:
+   El registro en `Controller/Cregistro.php` solicita nombre, correo, teléfono, 
+   dirección y contraseña. La contraseña se hashea en el servidor mediante el 
+   algoritmo nativo de PHP `password_hash()` con la constante `PASSWORD_BCRYPT`. 
+   El inicio de sesión valida las credenciales y almacena en sesión: 
+   `$_SESSION['cliente_id']`, `$_SESSION['correo']` y `$_SESSION['cliente_nombre']`.
+
+2. Catálogo Dinámico de Productos y Categorías de Ocasión:
+   La interfaz `View/VInterfazUsuario.php` lista todos los productos y verifica si 
+   tienen un porcentaje de descuento asociado mediante un `LEFT JOIN` a la tabla de 
+   promociones. Si existe un descuento activo, se calcula el precio final 
+   dinámicamente:
+   `Precio Final = Precio Original * (1 - Porcentaje Descuento / 100)`
+   El cliente puede elegir promociones específicas que lo redirigen a secciones de 
+   festividades personalizadas (`cumple.php`, `diamadre.php`, `sanvalentin.php`).
+
+3. Ficha Técnica y Carrito de Compras:
+   En `View/verProducto.php` se visualizan los detalles de un producto individual, 
+   y se permite su adición al carrito especificando cantidades. El sistema busca 
+   si el cliente ya posee un pedido con `estado = 'carrito'`; de no existir, lo crea 
+   y luego inserta el registro en `detalle_pedido`.
+
+4. Confirmación de Reserva de Pedido:
+   En `View/Carrito.php`, al hacer clic en "Reservar", se redirige a 
+   `View/VConfirmacion.php`. Aquí se ejecutan de manera secuencial dos acciones críticas:
+   - Descontar el stock disponible de cada producto de la tabla `productos` basándose 
+     en la cantidad solicitada en `detalle_pedido` (`stock = stock - cantidad`).
+   - Modificar el estado general del pedido de `'carrito'` a `'reservado'`.
+
+5. Enlace Directo a Soporte por WhatsApp:
+   Uso de la API pública de WhatsApp (`https://wa.me/...`) enlazado al número 
+   institucional para resolver dudas inmediatas o personalizar arreglos.
+
+MÓDULO DE ADMINISTRACIÓN:
+1. Panel de Control KPI (Dashboard):
+   En `View/VAdmin.php` se cuenta con un moderno dashboard que extrae indicadores clave:
+   - Pedidos Pendientes: Recuento de órdenes en estado 'pendiente' o 'procesando'.
+   - Ventas del Mes: Suma acumulada de ingresos por pedidos completados en el mes actual.
+   - Productos con Stock Bajo: Recuento de productos con existencias inferiores a 10 unidades.
+   - Alerta de Agotados: Notificación visual si hay productos con stock menor o igual a 0.
+   - Gráfico de Ventas por Categoría: Integrado con Chart.js para dar soporte visual rápido.
+   - Últimos Pedidos: Tabla que muestra los 5 pedidos más recientes con estado y detalles del cliente.
+
+2. Gestión de Productos (CRUD Completo):
+   - Crear: `Controller/CAdministrador/CAdminIngresar.php` recibe los datos del formulario, 
+     recupera la imagen como flujo binario a través de `file_get_contents` y la guarda 
+     en un campo de tipo `LONGBLOB` en MySQL. También guarda las relaciones del producto 
+     con múltiples categorías de ocasión y promociones aplicables.
+   - Leer/Buscar: `View/VAdministrador/VAdminMostrarD.php` lista el inventario actual, 
+     y `VAdminBuscarD.php` realiza filtros dinámicos por nombre o tipo.
+   - Actualizar: Modifica los campos básicos del producto, actualiza la imagen si se carga 
+     un archivo nuevo, y recalcula niveles de existencias.
+   - Eliminar: Borra de forma lógica/física registros de productos que se retiran del mercado.
+
+3. Gestión Logística de Pedidos:
+   En `View/VAdministrador/VAdminPedidos.php`, el administrador examina cada orden de compra 
+   confirmada por los clientes, los detalles de artículos pedidos y sus subtotales, 
+   y cuenta con herramientas de formulario para actualizar el estado del envío/reserva 
+   (Pendiente, Procesando, Reservado, Completado, Cancelado).
+
+4. Generación Parametrizada de Reportes en PDF (FPDF):
+   Se programaron scripts que instancian una clase PDF personalizada extendiendo `FPDF`:
+   - `GenerarReporteProductos.php` (Catálogo general de productos)
+   - `GenerarReporteCategorias.php` (Ventas acumuladas categorizadas)
+   - `GenerarReporteMasVendidos.php` (Arreglos florales con mayor demanda)
+   - `GenerarReporteDescuentos.php` (Productos que tienen promociones activas)
+   Cada reporte incluye un encabezado institucional estructurado con los datos de 
+   la ESPOCH y pie de página dinámico con fecha y paginación.
+
+--------------------------------------------------------------------------------
+6. SEGURIDAD Y CONTROL DE ACCESO
+--------------------------------------------------------------------------------
+- Cifrado de Contraseñas:
+  Los datos de los clientes se resguardan utilizando hasheo unidireccional de contraseñas 
+  Bcrypt. Esto previene que una eventual intrusión a la base de datos comprometa la 
+  contraseña en texto plano de los usuarios.
+- Variables de Sesión:
+  Uso estricto del vector global de PHP `$_SESSION` para validar permisos. El acceso al 
+  panel administrativo exige la validación de `$_SESSION["admin"] == true`, redirigiendo 
+  al formulario de autenticación si se intenta un acceso directo por URL.
+- Sanitización de Entrada:
+  Implementación de funciones de escape en consultas directas y bindings para parámetros 
+  en sentencias preparadas de PHP con el fin de evitar inyecciones de código malicioso.
+
+--------------------------------------------------------------------------------
+7. DIAGNÓSTICO TÉCNICO Y RECOMENDACIONES DE CORRECCIÓN
+--------------------------------------------------------------------------------
+Durante el levantamiento e inspección de la arquitectura del software, se 
+detectaron las siguientes discrepancias y bugs, los cuales deben corregirse 
+para garantizar la estabilidad del sistema en producción:
+
+1. Inconsistencia PDO vs MySQLi (Conexión de Base de Datos):
+   - Defecto: `Config/conexion.php` define `$conectBd` con la interfaz MySQLi, 
+     pero scripts como `CValidarAdmin.php` y `MIniciar.php` ejecutan llamadas PDO 
+     sobre una variable `$conn` no declarada.
+   - Solución: Actualizar `Config/conexion.php` para definir de manera concurrente 
+     tanto la variable `$conectBd` (para MySQLi) como `$conn` (instancia PDO), 
+     proveyendo un canal dual de compatibilidad de base de datos.
+
+2. Inconsistencias de Tablas y Atributos en el Dashboard:
+   - Defecto: En `View/VAdmin.php` se incluye un archivo inexistente `../Model/conexion.php`, 
+     se utiliza `$conexion` en lugar de `$conectBd`, y se ejecuta una unión con 
+     `JOIN usuarios u` (la tabla real es `clientes`) y `u.id = p.usuario_id` 
+     (la columna real es `cliente_id`).
+   - Solución: Reestructurar la sentencia SQL en `View/VAdmin.php` y corregir la 
+     inclusión al archivo `../Config/conexion.php`.
+
+3. Ausencia de Filtro de Autenticación en sub-vistas del Administrador:
+   - Defecto: Los scripts dentro de `View/VAdministrador/` carecen de verificaciones 
+     de sesión (`$_SESSION['admin']`), dejando expuestas las operaciones CRUD y 
+     logísticas a usuarios no autenticados que conozcan las URL de acceso directo.
+   - Solución: Anteponer un bloque de verificación de sesión al inicio de cada 
+     archivo PHP del subdirectorio:
+     ```php
+     session_start();
+     if (!isset($_SESSION["admin"])) {
+         header("Location: ../VAdminLogin.php");
+         exit();
+     }
+     ```
+
+4. Direccionamiento con Rutas Relativas Rotas:
+   - Defecto: El menú de navegación `Model/MMenuNav.php` es incluido desde archivos 
+     en diferentes niveles de directorios, lo que provoca la ruptura de enlaces 
+     a CSS/JS e hipervínculos internos.
+   - Solución: Utilizar rutas absolutas del servidor (por ejemplo `/floreria/...`) 
+     o definir una constante `BASE_URL` en un archivo global de configuración.
+
+================================================================================
+FIN DEL DOCUMENTO
+================================================================================

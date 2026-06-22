@@ -1,0 +1,456 @@
+CODEFLOWERS S.A.
+Gerencia de proyectos
+
+ACUERDO DE TRABAJO (SOW)
+Florería J&A — Sistema Web
+Fecha: 9/04/2026
+================================================================
+
+Escuela Superior Politécnica de Chimborazo
+Facultad de Informática y Electrónica
+Ingeniería en Software
+Gestión de proyectos de software — Actividad Grupal: SOW
+
+Integrantes:
+  Franklin Acero
+  Bryan Caguana
+  Walter Reyes
+  Daryend Castillo
+  Omar Figueroa
+  Samuel Yambay
+  Alex Lema
+  Séptimo "1"
+
+TABLA DE CONTENIDO
+------------------
+1.  Información del Proyecto
+2.  Roles
+3.  Propósito del acuerdo de trabajo
+4.  Alcance del proyecto
+5.  Entregables
+6.  Cronograma de ejecución
+7.  Requisitos del cliente
+8.  Requisitos no funcionales
+9.  Criterios de aceptación
+10. Supuestos y limitaciones
+11. Requisitos de recursos
+12. Riesgos iniciales y medidas de mitigación
+13. Condiciones generales y responsabilidades
+14. Aprobaciones
+
+
+================================================================
+1. INFORMACIÓN DEL PROYECTO
+================================================================
+
+Nombre del proyecto    : Florería J&A — Sistema Web
+Cliente / Usuario      : Florería J&A
+Patrocinador           : Doris Flores - Gerente
+Gerente del proyecto   : Bryan Caguana
+Fecha de inicio        : 16/03/2026
+Fecha de fin           : 25/07/2026
+Duración estimada      : 4 meses
+Versión del documento  : 1.0
+
+
+================================================================
+2. ROLES
+================================================================
+
+Interesado / Grupo            | Rol en el proyecto                    | Interés
+------------------------------|---------------------------------------|--------------------------------------------------
+Bryan Caguana                 | Líder de proyecto / Scrum Master      | Coordinar al equipo, garantizar cumplimiento
+                              |                                       | de plazos y calidad del entregable.
+Walter Reyes                  | Diseñador / Arquitecto de SW          | Definir la arquitectura MVC, diseño de
+                              |                                       | interfaz y mockups.
+Daryend Castillo              | Desarrollador Backend y Frontend      | Implementar los módulos del sistema,
+                              |                                       | modelos, controladores y vistas.
+Samuel Yambay                 | Documentador                          | Elaborar y mantener la documentación
+                              |                                       | técnica y de usuario del proyecto.
+Franklin Acero                | Analista de Requisitos y Calidad      | Definir y validar los requisitos del sistema,
+                              | (QA Analyst)                          | realizar pruebas funcionales y verificar que
+                              |                                       | las funcionalidades cumplan con los objetivos.
+Alex Lema                     | Administrador de Base de Datos /      | Gestionar y optimizar la base de datos MySQL,
+                              | DevOps                                | configurar el servidor de desarrollo/producción,
+                              |                                       | realizar backups y garantizar el rendimiento.
+Omar Figueroa                 | Especialista en Integraciones y       | Integrar librerías externas (FPDF), apoyar en
+                              | Soporte QA                            | pruebas funcionales y validar la usabilidad.
+Docente                       | Supervisor académico / Product Owner  | Validar que el sistema cumpla con los
+                              |                                       | requisitos académicos y funcionales.
+Propietario de la floristería | Cliente / Usuario final               | Contar con un sistema que gestione inventario,
+                              |                                       | pedidos y reportes eficientes.
+Empleados de la floristería   | Usuario final (Admin)                 | Gestionar productos, pedidos y generar
+                              |                                       | reportes de forma rápida.
+
+
+================================================================
+3. PROPÓSITO DEL ACUERDO DE TRABAJO
+================================================================
+
+El sistema J&A Florería es una aplicación web basada en el modelo
+View-Controller (MVC), que tiene como objetivo centralizar y
+automatizar los ciclos operativos, enfocándose en la gestión de
+inventarios, gestión de perfiles de clientes y el seguimiento a pedidos
+en tiempo real. El producto final garantizará una operación escalable y
+estable, optimizará las operaciones comerciales y mejorará la
+experiencia del cliente.
+
+
+================================================================
+4. ALCANCE DEL PROYECTO
+================================================================
+
+El proyecto comprende el diseño, desarrollo e implementación de un
+sistema web.
+
+INCLUYE:
+--------
+- Registro de usuarios, inicio de sesión (Login) y gestión de
+  recuperación de contraseñas.
+- Gestión de inventarios, categorización, stock y promociones.
+- Módulo de carrito de compras y de generación de pedidos.
+- Generación de reportes de ventas y stock en formato PDF.
+- Sistema de monitoreo del estado de los pedidos desde su creación
+  hasta la entrega final.
+- Documentación técnica y manuales de usuario.
+- Diseño y construcción de la base de datos relacional en MySQL.
+- Diseño arquitectónico del sistema: esquema/tecnologías que soporte
+  construcción, actualización, gestión del almacenamiento, despliegue
+  y mantenimiento del sitema.
+
+NO INCLUYE:
+-----------
+- No se contempla el desarrollo de una aplicación móvil nativa en
+  esta versión.
+- No se integrarán pasarelas de pago reales; el proceso de pago será
+  referencial.
+- No se incluye soporte posterior a la entrega final en julio 2026.
+- No se desarrollarán módulos adicionales fuera del alcance aprobado
+  (RF-01 a RF-07).
+- Las funcionalidades de envío de correos de recuperación dependerán
+  de la configuración del servidor de producción (no garantizado en
+  localhost).
+
+
+================================================================
+5. ENTREGABLES
+================================================================
+
+FASE: INICIO
+------------
+ID | Entregable             | Descripción                                         | Responsable              | Fecha Inicio | Fecha Fin
+---|------------------------|-----------------------------------------------------|--------------------------|--------------|----------
+2  | Definir requerimientos | Documento de especificación de requisitos            | Daryend Castillo         | 16/03/2026   | 17/03/2026
+   | del sistema            | funcionales y no funcionales (SRS).                 |                          |              |
+3  | Elaborar acta          | Project Charter firmado que autoriza formalmente    | Bryan Caguana;           | 18/03/2026   | 18/03/2026
+   | constitutiva           | el inicio del proyecto.                             | Daryend Castillo         |              |
+4  | Identificar            | Registro de interesados con su nivel de influencia  | Bryan Caguana            | 19/03/2026   | 20/03/2026
+   | stakeholders           | y expectativas.                                     |                          |              |
+5  | Definir alcance        | Declaración del alcance (Scope Statement) con       | Franklin Acero           | 23/03/2026   | 26/03/2026
+   | del proyecto           | límites y exclusiones.                              |                          |              |
+6  | Acuerdo de trabajo     | Documento de normativas de equipo o contratos       | Omar Figueroa            | 27/03/2026   | 27/03/2026
+   |                        | iniciales aprobados.                                |                          |              |
+
+FASE: PLANIFICACIÓN
+-------------------
+ID | Entregable             | Descripción                                         | Responsable              | Fecha Inicio | Fecha Fin
+---|------------------------|-----------------------------------------------------|--------------------------|--------------|----------
+8  | Diseñar arquitectura   | Diagramas de arquitectura (C4, UML) definiendo la   | Walter Reyes; Omar F.    | 31/03/2026   | 03/04/2026
+   | del sistema            | estructura técnica.                                 |                          |              |
+9  | Diseñar base de datos  | Modelo Entidad-Relación y diccionario de datos de   | Alex Lema; Walter Reyes  | 06/04/2026   | 09/04/2026
+   | (modelo ER)            | la base de datos.                                   |                          |              |
+10 | Elaborar cronograma    | Diagrama de Gantt validado y línea base del         | Bryan C.; Samuel Y.      | 10/04/2026   | 13/04/2026
+   | del proyecto           | tiempo establecida.                                 |                          |              |
+11 | Definir estándares     | Guía de estilo y convenciones de código para el     | Daryend C.; Walter R.;   | 14/04/2026   | 14/04/2026
+   | de codificación        | equipo de desarrollo.                               | Omar F.                  |              |
+12 | Planificar pruebas     | Estrategia de Aseguramiento de Calidad, casos de   | Franklin A.; Omar F.     | 16/04/2026   | 16/04/2026
+   | (plan de QA)           | prueba teóricos.                                    |                          |              |
+13 | Diseñar wireframes /   | Mockups y prototipos de alta fidelidad para la      | Daryend C.; Walter R.    | 17/04/2026   | 22/04/2026
+   | prototipos             | interfaz de usuario.                                |                          |              |
+
+FASE: EJECUCIÓN
+---------------
+ID | Entregable             | Descripción                                         | Responsable              | Fecha Inicio | Fecha Fin
+---|------------------------|-----------------------------------------------------|--------------------------|--------------|----------
+15 | Desarrollar módulo de  | Código fuente funcional e integrado del núcleo de   | Daryend Castillo         | 23/04/2026   | 01/05/2026
+   | pedidos/ventas         | transacciones comerciales.                          |                          |              |
+16 | Desarrollar módulo de  | Código fuente funcional para gestión (CRUD) de la   | Daryend C.; Omar F.      | 04/05/2026   | 06/05/2026
+   | clientes               | cartera de clientes.                                |                          |              |
+17 | Desarrollar módulo de  | Código fuente funcional para gestión de inventarios | Daryend Castillo         | 07/05/2026   | 12/05/2026
+   | proveedores            | y proveedores.                                      |                          |              |
+18 | Implementar            | Sistema de login, seguridad y control de acceso     | Alex Lema; Daryend C.    | 13/05/2026   | 18/05/2026
+   | autenticación y roles  | basado en roles (RBAC).                             |                          |              |
+19 | Configurar base de     | Instancia de base de datos migrada y operativa en   | Alex Lema                | 19/05/2026   | 21/05/2026
+   | datos en producción    | el servidor de producción.                          |                          |              |
+20 | Desarrollar reportes   | Vistas o paneles (dashboards) funcionales para      | Daryend Castillo         | 22/05/2026   | 27/05/2026
+   |                        | extracción de analíticas.                           |                          |              |
+21 | Documentar código      | Repositorio con comentarios técnicos y              | Samuel Yambay            | 28/05/2026   | 01/06/2026
+   | fuente                 | documentación de API.                               |                          |              |
+22 | Elaborar manual de     | Documento formativo enfocado en el uso operativo    | Samuel Yambay            | 02/06/2026   | 04/06/2026
+   | usuario                | del software.                                       |                          |              |
+23 | Elaborar manual        | Guía para futuros desarrolladores sobre el          | Samuel Yambay            | 05/06/2026   | 09/06/2026
+   | técnico                | mantenimiento del sistema.                          |                          |              |
+24 | Configurar entorno de  | Servidor/Hosting listo con dependencias para        | Alex Lema                | 10/06/2026   | 12/06/2026
+   | despliegue             | alojar el sistema.                                  |                          |              |
+
+FASE: PRUEBAS
+-------------
+ID | Entregable             | Descripción                                         | Responsable              | Fecha Inicio | Fecha Fin
+---|------------------------|-----------------------------------------------------|--------------------------|--------------|----------
+26 | Realizar pruebas       | Informes de éxito/fallo de funciones individuales   | Daryend C.; Franklin A.; | 15/06/2026   | 16/06/2026
+   | unitarias              | (código).                                           | Omar F.                  |              |
+27 | Realizar pruebas de    | Validación de la comunicación entre módulos         | Daryend C.; Franklin A.; | 17/06/2026   | 18/06/2026
+   | integración            | (pedidos, clientes, proveedores).                   | Omar F.                  |              |
+28 | Realizar pruebas de    | Informe de experiencia de usuario (UX) tras         | Franklin A.; Omar F.     | 19/06/2026   | 23/06/2026
+   | usabilidad             | iteraciones con el sistema.                         |                          |              |
+29 | Validar entregables    | Sesión de retroalimentación o User Acceptance       | Franklin Acero           | 24/06/2026   | 25/06/2026
+   | con el cliente         | Testing (UAT).                                      |                          |              |
+30 | Corregir errores y     | Sistema estable (Release Candidate) libre de        | Daryend C.; Franklin A.  | 26/06/2026   | 01/07/2026
+   | bugs detectados        | fallos críticos.                                    |                          |              |
+31 | Aprobar versión final  | Firma de conformidad y pase a producción            | Bryan C.; Daryend C.;    | 02/07/2026   | 03/07/2026
+   | del sistema            | autorizado.                                         | Franklin A.              |              |
+
+FASE: CIERRE
+------------
+ID | Entregable             | Descripción                                         | Responsable              | Fecha Inicio | Fecha Fin
+---|------------------------|-----------------------------------------------------|--------------------------|--------------|----------
+33 | Capacitar usuarios     | Sesión ejecutada y actas de asistencia/aprobación   | Samuel Y.; Omar F.       | 07/07/2026   | 08/07/2026
+   | finales                | de la capacitación.                                 |                          |              |
+34 | Desplegar sistema en   | Software en vivo y funcional bajo el dominio o red  | Alex Lema                | 09/07/2026   | 10/07/2026
+   | producción             | definitiva.                                         |                          |              |
+35 | Dar soporte post-      | Resolución de incidencias tempranas operativas de   | Alex L.; Daryend C.;     | 13/07/2026   | 14/07/2026
+   | lanzamiento            | la salida en vivo.                                  | Franklin A.              |              |
+36 | Elaborar informe final | Documento con lecciones aprendidas, varianzas de    | Bryan C.; Samuel Y.      | 14/07/2026   | 15/07/2026
+   | del proyecto           | costo/tiempo y cierre.                              |                          |              |
+37 | Cierre formal del      | Acta de cierre final firmada liberando al equipo    | Bryan Caguana            | 15/07/2026   | 17/07/2026
+   | proyecto               | de sus responsabilidades.                           |                          |              |
+
+
+================================================================
+6. CRONOGRAMA DE EJECUCIÓN
+================================================================
+
+Hito / Fase              | Fecha de inicio | Fecha de fin | Entregables asociados
+-------------------------|-----------------|--------------|--------------------------------
+Inicio y Planificación   | 16/03/2026      | 22/03/2026   | Acta de constitución y plan
+                         |                 |              | de sprints.
+Análisis y Requisitos    | 23/03/2026      | 05/04/2026   | Documento de requisitos (SRS).
+Diseño y Arquitectura    | 06/04/2026      | 20/04/2026   | Diagramas UML, DB y Mockups.
+Desarrollo (Software     | 21/04/2026      | 25/06/2026   | Código fuente en GitHub y
+Base)                    |                 |              | módulos.
+Pruebas y Cierre         | 26/06/2026      | 25/07/2026   | Informe de pruebas y Acta
+                         |                 |              | de aceptación.
+
+
+================================================================
+7. REQUISITOS DEL CLIENTE
+================================================================
+
+Compromisos del cliente:
+- Proporcionar información detallada sobre productos, categorías y
+  procesos internos.
+- Designar a Doris Flores como interlocutora principal para
+  validaciones.
+- Garantizar el acceso a dispositivos con conexión a Internet para
+  las pruebas finales.
+
+REQUISITOS FUNCIONALES
+-----------------------
+
+Módulo de Autenticación y Usuarios (Roles):
+  RF-USR-01: El sistema permitirá el registro de nuevos clientes
+             capturando: nombre completo, correo electrónico (único),
+             teléfono, dirección de entrega por defecto y contraseña.
+  RF-USR-02: El sistema permitirá el inicio de sesión mediante
+             credenciales (correo electrónico y contraseña).
+  RF-USR-03: El sistema bloqueará temporalmente la cuenta del usuario
+             tras 5 intentos fallidos consecutivos de inicio de sesión.
+  RF-USR-04: El sistema permitirá la recuperación de contraseña
+             enviando un enlace temporal y seguro al correo registrado.
+  RF-USR-05: El sistema manejará control de acceso basado en roles
+             (RBAC): Administrador, Vendedor y Cliente, restringiendo
+             el acceso a los módulos según el rol.
+
+Módulo de Catálogo y Productos:
+  RF-PROD-01: El sistema permitirá al Administrador gestionar (Crear,
+              Leer, Actualizar, Eliminar/Desactivar) productos. Campos
+              obligatorios: SKU, nombre, precio, stock actual,
+              descripción, categoría, estado de promoción e imagen(es).
+  RF-PROD-02: El sistema mostrará a los Clientes un catálogo paginado,
+              destacando en una sección principal los productos con
+              estado "En promoción".
+  RF-PROD-03: El sistema contará con una barra de búsqueda que permita
+              localizar productos por SKU, nombre o palabras clave en
+              la descripción, además de filtros por categoría y rango
+              de precio.
+
+Módulo de Carrito y Ventas/Pedidos:
+  RF-VEN-01: El sistema permitirá al Cliente gestionar su carrito:
+             agregar productos, modificar la cantidad, ver el subtotal
+             dinámico y eliminar productos individualmente o vaciar el
+             carrito completo.
+  RF-VEN-02: El sistema descontará temporalmente el stock de un
+             producto cuando se agregue al carrito y confirmará la
+             reducción definitiva al concretar el pago (checkout).
+  RF-VEN-03: El sistema permitirá al Cliente finalizar la compra
+             (checkout) seleccionando un método de entrega (Recogida
+             en tienda o Envío a domicilio) y un método de pago.
+  RF-VEN-04: El sistema permitirá al Administrador y Vendedor cambiar
+             el estado de un pedido (Pendiente, En Preparación, Listo
+             para Envío, Entregado, Cancelado).
+
+Módulo de Proveedores y Reportes:
+  RF-PROV-01: El sistema permitirá al Administrador registrar los
+              datos de los proveedores (nombre de empresa, contacto,
+              teléfono, productos que provee).
+  RF-REP-01:  El sistema permitirá al Administrador generar un reporte
+              exportable (PDF/Excel) de las ventas concretadas en un
+              rango de fechas específico.
+
+
+================================================================
+8. REQUISITOS NO FUNCIONALES
+================================================================
+
+Seguridad:
+  RNF-SEG-01: Las contraseñas se almacenarán utilizando el algoritmo
+              de hash bcrypt con un factor de costo mínimo de 10 o
+              superior (Salt automático).
+  RNF-SEG-02: El sistema invalidará automáticamente la sesión activa
+              de cualquier usuario (Admin o Cliente) tras 30 minutos
+              de inactividad.
+  RNF-SEG-03: Todas las comunicaciones entre el cliente y el servidor
+              deberán estar cifradas bajo el protocolo HTTPS
+              (TLS 1.2 o superior).
+
+Rendimiento y Escalabilidad:
+  RNF-REN-01: El tiempo de carga de la página inicial (catálogo y
+              ofertas) no deberá exceder los 3 segundos en conexiones
+              de banda ancha estándar.
+  RNF-REN-02: Las consultas de búsqueda y filtrado de productos en
+              la base de datos deberán retornar y renderizar resultados
+              en menos de 1 segundo.
+  RNF-REN-03: El sistema deberá ser capaz de soportar hasta 150
+              usuarios concurrentes navegando el catálogo sin una
+              degradación perceptible en los tiempos de respuesta.
+
+Usabilidad y Compatibilidad:
+  RNF-USA-01: La interfaz de usuario será construida bajo el paradigma
+              Mobile First y será 100% responsiva (Bootstrap 5),
+              adaptándose a resoluciones de móvil (320px+), tablet y
+              escritorio.
+  RNF-USA-02: El sistema garantizará compatibilidad visual y funcional
+              con las dos últimas versiones estables de los
+              navegadores: Google Chrome, Mozilla Firefox, Microsoft
+              Edge y Safari.
+
+Disponibilidad y Confiabilidad:
+  RNF-DIS-01: La plataforma deberá garantizar un Uptime del 99.5%
+              durante el horario comercial pico (08:00 AM - 08:00 PM).
+  RNF-DIS-02: El sistema de base de datos deberá ejecutar un respaldo
+              completo (Backup) automatizado diariamente a las 03:00 AM
+              (fuera del horario comercial).
+
+
+================================================================
+9. CRITERIOS DE ACEPTACIÓN
+================================================================
+
+- Cumplimiento del 100% de los requisitos funcionales (RF-01 a RF-07).
+- Implementación estricta bajo el patrón de arquitectura MVC.
+- Éxito en al menos el 90% de los casos de prueba de calidad.
+- Tiempos de carga menores a 3 segundos y búsquedas menores a 1
+  segundo.
+- Contraseñas encriptadas en la base de datos.
+
+
+================================================================
+10. SUPUESTOS Y LIMITACIONES
+================================================================
+
+Supuestos                                  | Limitaciones
+-------------------------------------------|------------------------------------------
+El equipo de desarrollo mantendrá sus      | El proyecto debe completarse
+conocimientos técnicos en PHP y MySQL      | obligatoriamente hasta el 25/07/2026.
+durante la ejecución.                      |
+La Florería J&A entregará la información   | No se contempla el desarrollo de
+de productos y clientes en los plazos      | aplicaciones móviles nativas.
+acordados.                                 |
+La arquitectura MVC seleccionada           | El presupuesto total estimado es fijo:
+permitirá la escalabilidad del sistema     | USD 14,420.00.
+sin degradar el rendimiento.               |
+
+
+================================================================
+11. REQUISITOS DE RECURSOS
+================================================================
+
+Recurso                | Tipo         | Responsable / Proveedor        | Disponibilidad
+-----------------------|--------------|--------------------------------|------------------------------
+Personal de Desarrollo | Humano       | Bryan Caguana (Líder)          | 7 integrantes por 3 meses
+Equipos de cómputo     | Material     | CodeFlowers S.A.               | Inmediata ($ 8,400.00
+                       |              |                                | invertidos)
+Infraestructura Web    | Tecnológico  | Servidores web y MySQL         | Entorno de desarrollo
+                       |              |                                | local/pruebas
+Herramientas de        | Tecnológico  | XAMPP, PHP y VS Code           | Código abierto / Gratuito
+Software               |              |                                |
+Información de Negocio | Datos        | Florería J&A (Doris Flores)    | Registro de productos y
+                       |              |                                | clientes
+
+
+================================================================
+12. RIESGOS INICIALES Y MEDIDAS DE MITIGACIÓN
+================================================================
+
+Riesgo                          | Probabilidad | Impacto  | Plan de mitigación
+--------------------------------|--------------|----------|--------------------------------------------------
+Desactualización del stock      | Media        | Alto     | Implementación de alertas de stock y control
+                                |              |          | de entradas/salidas.
+Incumplimiento de protección    | Baja         | Crítico  | Desarrollo bajo la Ley Orgánica de Protección
+de datos                        |              |          | de Datos Personales de Ecuador.
+Resistencia al uso del sistema  | Media        | Media    | Capacitación formal de usuarios en módulos
+                                |              |          | de inventario y seguimiento.
+Pérdida de integridad en        | Baja         | Alto     | Uso estricto de la arquitectura MVC para
+lógica de negocio               |              |          | separar la lógica de la interfaz.
+Inestabilidad en la conexión    | Baja         | Media    | Requisito de conexión a internet estable y
+                                |              |          | validación de protocolos seguros.
+
+
+================================================================
+13. CONDICIONES GENERALES Y RESPONSABILIDADES
+================================================================
+
+- CodeFlowers S.A. es responsable de la construcción técnica de los
+  módulos (cliente, inventario, pedidos) y el despliegue en entorno
+  de pruebas, así como de garantizar asesoría para un despliegue a
+  producción.
+
+- Florería J&A debe proporcionar acceso oportuno a la información de
+  sus procesos internos y a servicios de validación por parte del
+  personal usuario experto, además de evaluar los entregables en las
+  fechas estimadas.
+
+- Cualquier cambio fuera de los requerimientos RF-01 a RF-11 deberá
+  ser evaluado mediante un control de cambios formal.
+
+
+================================================================
+14. APROBACIONES
+================================================================
+
+____________________________    ____________________________
+Bryan Caguana                   Walter Reyes
+
+____________________________    ____________________________
+Daryend Castillo                Samuel Yambay
+
+____________________________    ____________________________
+Franklin Acero                  Alex Lema
+
+____________________________
+Omar Figueroa
+
+
+================================================================
+Gerencia de proyectos - CodeFlowers S.A.
+================================================================

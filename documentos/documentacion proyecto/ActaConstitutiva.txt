@@ -1,0 +1,421 @@
+LA OFICINA DE PROYECTOS DE INFORMÁTICA
+ACTA DE CONSTITUCIÓN DEL PROYECTO
+Florería J&A — Sistema Web
+Fecha: 16/03/2026
+================================================================
+
+TABLA DE CONTENIDO
+------------------
+1. Información del Proyecto
+2. Propósito y Justificación del Proyecto
+3. Descripción del Proyecto y Entregables
+4. Requerimientos de alto nivel
+5. Objetivos
+6. Premisas y Restricciones
+7. Riesgos iniciales de alto nivel
+8. Cronograma de hitos principales
+9. Presupuesto estimado
+10. Lista de Interesados (stakeholders)
+11. Requisitos de aprobación del proyecto
+12. Asignación del Gerente de Proyecto y nivel de autoridad
+13. Personal y recursos preasignados
+14. Aprobaciones
+
+
+================================================================
+1. INFORMACIÓN DEL PROYECTO
+================================================================
+
+DATOS
+-----
+Empresa / Organización : Codeflower S.A
+Proyecto               : Florería J&A — Sistema Web
+Fecha de preparación   : 16/03/2026
+Cliente                : Florería J&A
+Patrocinador principal : Doris Flores
+Gerente de Proyecto    : Bryan Caguana
+
+PATROCINADOR / PATROCINADORES
+------------------------------
+Nombre        | Cargo   | Departamento / División | Rama ejecutiva
+Doris Flores  | Gerente | Operaciones             | Administración
+
+
+================================================================
+2. PROPÓSITO Y JUSTIFICACIÓN DEL PROYECTO
+================================================================
+
+La Floristería J&A, al incorporar como parte de su ecosistema de
+trabajo un sistema web, se propone encaminarse hacia la transformación
+digital, la optimización de transacciones comerciales y la calidad en
+la experiencia de usuario. Al integrar un entorno digital eficiente,
+ágil y seguro, se espera elevar la productividad administrativa,
+operativa y comercial del negocio. Un análisis meticuloso de los casos
+de uso y requerimientos permitirá definir el diseño del sistema, su
+arquitectura y pila tecnológica convergente. Se busca incorporar una
+interfaz dinámica, apegada a principios de diseño que provea navegación
+ágil y una experiencia de compra de calidad, fidelizando a los clientes
+y usuarios mediante resultados medibles y un mejor servicio.
+
+
+================================================================
+3. DESCRIPCIÓN DEL PROYECTO Y ENTREGABLES
+================================================================
+
+El proyecto consiste en el diseño e implementación de un sistema que
+incluye una aplicación web basada en el patrón de arquitectura
+Modelo-Vista-Controlador (MVC), lo cual permite centralización y
+automatización integral de los ciclos operativos, una gestión ordenada
+y eficiente del código y el flujo controlado de subprocesos. Incluye
+además una base de datos esquematizada teniendo en cuenta la naturaleza
+del negocio. Al tratarse de un sistema en el que se desacopla la lógica
+de negocio de la interfaz de usuario, se garantiza una operación
+escalable y robusta.
+
+El sistema plantea cubrir funcionalidades administrativas como la
+gestión de productos, la gestión de clientes, el seguimiento y manejo
+de pedidos; y funcionalidades del usuario cliente orientadas a la compra
+y realización de pedidos de flores y productos asociados. La aplicación
+automatizará el ciclo de venta desde la captación del cliente hasta la
+entrega final del producto.
+
+ENTREGABLES PRINCIPALES
+------------------------
+- Software Base: Aplicación web funcional desarrollada en PHP 8.x y
+  Bootstrap 5.
+- Base de Datos Relacional: Esquema en MySQL que incluye tablas de
+  productos, clientes, pedidos, carrito, promociones, roles, facturas.
+- Módulo de Reportes: Herramienta de generación de informes de ventas
+  y stock exportables en PDF (utilizando la librería FPDF).
+- Documentación Técnica: Manuales de usuario para administradores y
+  clientes, además de la documentación de la arquitectura del sistema.
+
+
+================================================================
+4. REQUERIMIENTOS DE ALTO NIVEL
+================================================================
+
+REQUERIMIENTOS DEL PRODUCTO
+----------------------------
+
+Requisitos Funcionales:
+  RF-01: El sistema permitirá al usuario registrarse.
+  RF-02: El sistema permitirá el ingreso por medio de correo y contraseña.
+  RF-03: El sistema permitirá al usuario observar el catálogo.
+  RF-04: El sistema permitirá al usuario realizar un pedido de uno o
+          varios productos, pudiendo seleccionar la modalidad de pago
+          y entrega.
+  RF-06: El sistema permitirá a los usuarios buscar algún producto por
+          el Id o el nombre.
+  RF-07: El sistema deberá permitir a los usuarios clientes gestionar
+          el carrito de compras.
+  RF-08: El sistema permitirá al Administrador la gestión de productos.
+  RF-09: El sistema debe permitir al Administrador visualizar y descargar
+          reportes de Ventas parametrizados por Cliente, Periodo,
+          Producto en un Periodo, montos de compra.
+  RF-10: El sistema debe permitir al administrador la gestión de
+          promociones.
+  RF-11: El sistema debe permitir al administrador eliminar una compra.
+
+Requisitos No Funcionales:
+  RNF-01: El sistema cuenta con encriptamiento de contraseñas y
+           estrategias de seguridad.
+  RNF-02: El sistema deberá cargar el catálogo de productos y las
+           ofertas en un tiempo máximo de 3 segundos con conexión
+           a internet estable.
+  RNF-03: La interfaz del sistema deberá ser completamente responsiva
+           y adaptarse a dispositivos móviles, tablets y escritorio
+           utilizando Bootstrap 5.
+  RNF-04: El sistema deberá ser compatible con los navegadores Google
+           Chrome, Mozilla Firefox, Microsoft Edge y Safari en sus
+           versiones más recientes.
+  RNF-05: La plataforma deberá mantener una disponibilidad del 99%
+           durante el horario de operación comercial (8:00 am - 8:00 pm).
+  RNF-06: Las búsquedas de productos por ID o nombre deberán devolver
+           resultados en menos de 1 segundo.
+  RNF-07: El sistema guardará consistencia con la Guía de Estilo y
+           estándares de diseño de interfaces y navegación, así como
+           adaptación responsiva a dispositivos móviles.
+  RNF-08: El sistema deberá contar en su backend con una base de datos
+           robusta, en el estándar SQL, que contemple almacenamiento
+           adecuado y escalable para los diferentes tipos de datos
+           propios de la naturaleza del negocio.
+
+REQUERIMIENTOS DEL PROYECTO
+-----------------------------
+- Metodología de Trabajo: El desarrollo se regirá estrictamente por
+  la metodología SCRUM, con reuniones de planificación de sprint y
+  revisiones periódicas con el docente (Product Owner).
+- Entorno de Desarrollo: El software debe ser compatible con servidores
+  locales Apache (XAMPP/WAMP) y utilizar Git/GitHub para el control
+  de versiones.
+- Restricción Temporal: El proyecto debe ser entregado y validado a
+  más tardar en julio 2026, coincidiendo con el cierre del ciclo
+  académico.
+- Calidad de Código: El código debe seguir las convenciones de la
+  arquitectura MVC, manteniendo modelos, vistas y controladores en
+  carpetas separadas para facilitar el mantenimiento por parte del
+  equipo.
+
+
+================================================================
+5. OBJETIVOS
+================================================================
+
+Categoría            | Objetivo                                          | Indicador de éxito
+---------------------|---------------------------------------------------|--------------------------------------------------
+Alcance              | Desarrollar aplicación web bajo arquitectura PHP  | Implementación del 100% de los RF-01 al RF-07.
+                     | (MVC) que centralice gestión de productos,        |
+                     | clientes y pedidos.                               |
+Alcance              | Implementar sistema de generación de informes     | Generación exitosa de archivos PDF con FPDF
+                     | para ventas, inventarios y demanda de productos.  | usando datos reales del sistema.
+Alcance              | Incorporación de pasarela de pagos.               | Pago por compras y pedidos en línea.
+Cronograma (Tiempo)  | Cumplir con el desarrollo dentro del período      | Finalización y entrega de entregables técnicos
+                     | académico de marzo a julio de 2026.               | en la fecha de cierre (julio 2026).
+Cronograma (Tiempo)  | Garantizar tiempos de respuesta ágiles en         | Carga del catálogo en máx. 3 seg y resultados
+                     | navegación y búsqueda de productos.               | de búsqueda en menos de 1 segundo.
+Costo                | Ejecutar el proyecto utilizando herramientas de   | Inversión de 0 USD en licencias, usando stack
+                     | software libre y código abierto.                  | gratuito (PHP, MySQL, VS Code).
+Costo                | Optimizar recursos humanos para cubrir todas las  | Participación de los 7 integrantes sin apoyo
+                     | áreas del desarrollo.                             | externo.
+Calidad              | Asegurar protección de información de usuarios    | 100% de contraseñas almacenadas encriptadas
+                     | mediante estándares de seguridad.                 | con algoritmo bcrypt.
+Calidad              | Garantizar experiencia de usuario fluida y        | Interfaz 100% responsiva validada en móviles
+                     | adaptable a cualquier dispositivo.                | y escritorio mediante Bootstrap 5.
+Otros                | Mantener disponibilidad del sistema durante el    | Disponibilidad del 99% en horario 8:00 am -
+                     | horario comercial establecido.                    | 8:00 pm.
+Otros                | Gestionar el ciclo de vida del desarrollo         | Realización de Sprint Planning y revisiones
+                     | mediante metodologías ágiles.                     | periódicas documentadas según SCRUM.
+
+
+================================================================
+6. PREMISAS Y RESTRICCIONES
+================================================================
+
+PREMISAS
+--------
+- El equipo de desarrollo cuenta con conocimientos previos en PHP,
+  MySQL y arquitectura MVC.
+- Se dispone de acceso a los servidores necesarios para el desarrollo
+  y pruebas del sistema.
+- La Floristería J&A proporcionará la información necesaria sobre sus
+  productos, categorías y procesos internos.
+- Los usuarios finales (clientes y administradores) dispondrán de
+  conexión a Internet y dispositivo compatible.
+- El proyecto se desarrolla en el marco académico de la asignatura
+  "GESTIÓN DE PROYECTOS DE SOFTWARE" bajo supervisión docente.
+- Se utilizará la metodología SCRUM para la planificación y ejecución
+  de los sprints.
+
+RESTRICCIONES
+-------------
+- El proyecto deberá completarse dentro del período académico 2025,
+  cumpliendo con los plazos definidos en el plan de sprints.
+- El presupuesto es limitado al entorno académico; se priorizarán
+  herramientas y recursos de código abierto o gratuitos.
+- El sistema no integrará pasarelas de pago reales en la versión
+  inicial; el proceso de pago será referencial.
+- El equipo está conformado únicamente por los 7 integrantes asignados;
+  se considerarán como integrantes externos al Product Owner y al User
+  Expert, quienes proveerán información y son responsables de dar
+  seguimiento, validación y retroalimentación constantes al proyecto.
+- El sistema será desarrollado para entorno web con adaptación
+  responsiva para entorno móvil.
+- La base de datos se alojará en MySQL local (localhost) para el
+  entorno de desarrollo.
+- Las funcionalidades de envío de correos electrónicos de recuperación
+  de contraseña dependerán de la configuración del servidor de
+  producción.
+
+
+================================================================
+7. RIESGOS INICIALES DE ALTO NIVEL
+================================================================
+
+Riesgo                            | Impacto | Estrategia de Mitigación
+----------------------------------|---------|-------------------------------
+Incumplimiento del cronograma     | Alto    | Aplicación rigurosa de SCRUM
+académico                         |         | con sprints quincenales.
+Curva de aprendizaje tecnológica  | Medio   | Sesiones de transferencia de
+                                  |         | conocimiento internas lideradas
+                                  |         | por el Arquitecto de SW.
+Inconsistencia en la toma de      | Medio   | Validación constante de
+requisitos                        |         | historias de usuario por el
+                                  |         | Analista de Requisitos y el
+                                  |         | docente (Product Owner).
+Limitaciones del entorno de       | Bajo    | Estandarizar versiones de PHP
+desarrollo local                  |         | y MySQL entre todos los
+                                  |         | integrantes; usar Git.
+Pérdida o corrupción de datos     | Alto    | Esquema de respaldos periódicos
+                                  |         | liderado por el Administrador
+                                  |         | de DB.
+Baja disponibilidad o             | Medio   | Optimizar código e imágenes
+conectividad                      |         | para asegurar carga en < 3s
+                                  |         | (RNF-02).
+
+
+================================================================
+8. CRONOGRAMA DE HITOS PRINCIPALES
+================================================================
+
+Hito                                                        | Fecha tope
+------------------------------------------------------------|--------------------
+Aprobación del Acta Constitutiva y Planificación de Sprints | 31 de marzo 2026
+Diseño de arquitectura MVC, Base de Datos y Mockups         | 20 de abril 2026
+Finalización Sprint 1: Módulos de Clientes e Inventario     | 15 de mayo 2026
+Finalización Sprint 2: Módulo de Pedidos y Carrito          | 05 de junio 2026
+Implementación de Reportes PDF (FPDF) y Pruebas QA          | 25 de junio 2026
+Despliegue en entorno de pruebas y entrega del producto     | 15 de julio 2026
+Entrega de documentación técnica y manuales de usuario      | 25 de julio 2026
+
+
+================================================================
+9. PRESUPUESTO ESTIMADO
+================================================================
+
+Concepto                                    | Cantidad              | Costo Unit. | Monto (USD)
+--------------------------------------------|----------------------|-------------|------------
+Equipos de cómputo                          | 7                    | 1200        | $  8.400,00
+Conectividad                                | 3 meses x 7 integr.  | 20          | $    420,00
+Mano de obra (7 integrantes por 3 meses)   | 3 meses x 7 integr.  | 214,28      | $  4.500,00
+Otros gastos menores                        | —                    | —           | $    500,00
+Mantenimiento del sistema                   | —                    | —           | $    200,00
+Capacitación de usuarios                    | —                    | —           | $    400,00
+XAMPP                                       | —                    | —           | $      0,00
+Visual Studio Code                          | —                    | —           | $      0,00
+PHP                                         | —                    | —           | $      0,00
+--------------------------------------------|----------------------|-------------|------------
+TOTAL ESTIMADO DEL PROYECTO                 |                      |             | $ 14.420,00
+
+
+================================================================
+10. LISTA DE INTERESADOS (STAKEHOLDERS)
+================================================================
+
+Nombre         | Cargo                          | Departamento / División       | Rama ejecutiva
+---------------|--------------------------------|-------------------------------|----------------------
+Bryan          | Líder de proyecto / Scrum Master | Gestión de Proyectos        | Dirección General
+Walter         | Diseñador / Arquitecto de SW   | Arquitectura de Software      | Desarrollo e Innovación
+Daryend        | Desarrollador Fullstack        | Ingeniería de Desarrollo      | Desarrollo e Innovación
+Samuel         | Documentador Técnico           | Documentación y Calidad       | Operaciones y Soporte
+Franklin       | Analista de Requisitos / QA    | Aseguramiento de Calidad      | Control de Procesos
+Alex           | Administrador de DB / DevOps   | Operaciones de TI             | Infraestructura Tecnológica
+Omar           | Especialista en Integraciones  | Integraciones y Soporte       | Desarrollo e Innovación
+Docente        | Supervisor / Product Owner     | Facultad de Informática       | Dirección Académica
+Doris          | Cliente Final / Patrocinador   | Comercial / Negocio           | Gerencia General
+Empleados      | Usuarios Finales (Admin.)      | Ventas y Almacén              | Operaciones Comerciales
+
+
+================================================================
+11. REQUISITOS DE APROBACIÓN DEL PROYECTO
+================================================================
+
+1. Cumplimiento funcional: El sistema debe cumplir con el 100% de los
+   requisitos funcionales esenciales (RF-01 a RF-11), incluyendo la
+   gestión integral del catálogo de productos, el registro de clientes,
+   la administración de inventario, el funcionamiento del carrito de
+   compras y la generación de reportes PDF.
+
+2. Calidad Arquitectónica y Técnica: Todas las funcionalidades deben
+   estar implementadas bajo el patrón MVC utilizando PHP 8.x. Se
+   verificará que la lógica de negocio esté correctamente desacoplada
+   de la interfaz de usuario y que las contraseñas se almacenen
+   mediante bcrypt (RNF-01).
+
+3. Pruebas de aceptación: Al menos el 90% de los casos de prueba deben
+   ejecutarse con éxito. No deberán existir defectos críticos que
+   impidan el flujo completo de compra.
+
+4. Rendimiento y Usabilidad:
+   - Disponibilidad: Mínimo 99% durante el horario de operación (RNF-05).
+   - Tiempo de respuesta: Carga del catálogo en menos de 3 segundos
+     (RNF-02) y búsquedas procesadas en menos de 1 segundo (RNF-06).
+   - Responsividad: Adaptabilidad total en móviles y escritorio
+     mediante Bootstrap 5.3 (RNF-03).
+
+5. Entrega Documental: Se debe entregar el repositorio en GitHub junto
+   con la documentación técnica y funcional completa, que incluya:
+   - Manual de usuario (Administrador y Cliente Final).
+   - Documentación de la arquitectura MVC y Diccionario de Datos MySQL.
+   - Guía de despliegue en servidor local (Apache/XAMPP).
+   - Informe final de pruebas funcionales y resultados de calidad.
+
+6. Aprobación y Firmas: El Docente deberá revisar y validar el
+   cumplimiento de los requisitos académicos y técnicos, firmando el
+   acta de aceptación final junto con el Líder de Proyecto.
+
+
+================================================================
+12. ASIGNACIÓN DEL GERENTE DE PROYECTO Y NIVEL DE AUTORIDAD
+================================================================
+
+GERENTE DE PROYECTO
+-------------------
+Nombre           | Cargo             | Departamento          | Rama ejecutiva
+Daryend Castillo | Gerente de Proyecto | Gerencia de Proyectos | Vicepresidencia
+
+NIVELES DE AUTORIDAD
+---------------------
+Área de autoridad             | Descripción
+------------------------------|--------------------------------------------------
+Decisiones de personal        | El Líder de Proyecto asigna tareas y reubica
+                              | responsabilidades entre los 7 integrantes según
+                              | la carga de cada sprint.
+Gestión de presupuesto        | Aprobación del uso de recursos gratuitos o de
+                              | código abierto; decisión compartida entre el
+                              | Líder de Proyecto y el Arquitecto de SW.
+Decisiones técnicas           | El Arquitecto de Software tiene la autoridad
+                              | final sobre la estructura MVC y la base de datos.
+                              | El Administrador de BD decide sobre las políticas
+                              | de backup y optimización de MySQL.
+Resolución de conflictos      | Conflictos técnicos menores: Daily Stand-ups.
+                              | Conflictos mayores: mediados por el Scrum Master
+                              | y escalados al Docente si es necesario.
+Ruta de escalamiento          | Cualquier cambio que afecte el alcance académico
+                              | o los plazos (julio 2026) debe ser escalado al
+                              | Docente (Product Owner) para su validación.
+
+
+================================================================
+13. PERSONAL Y RECURSOS PREASIGNADOS
+================================================================
+
+Recurso           | Departamento / División    | Rama ejecutiva
+------------------|---------------------------|---------------------------
+Bryan Caguana     | Gestión de Proyectos       | Dirección General
+Walter Reyes      | Arquitectura y Diseño      | Desarrollo e Innovación
+Daryend Castillo  | Ingeniería de Software     | Desarrollo e Innovación
+Samuel Yambay     | Aseguramiento de Calidad   | Operaciones y Soporte
+Franklin Acero    | Análisis de Requisitos     | Control de Procesos
+Alex Lema         | Infraestructura y DevOps   | Tecnología y Sistemas
+Omar Figueroa     | Integraciones Tecnológicas | Desarrollo e Innovación
+
+
+================================================================
+14. APROBACIONES
+================================================================
+
+TABLA DE CONTROL Y APROBACIONES
+---------------------------------
+Patrocinador  | Fecha | Firma
+Doris Flores  |       |
+
+FIRMAS DE RESPONSABILIDAD
+--------------------------
+____________________________    ____________________________
+Bryan Caguana                   Walter Reyes
+
+____________________________    ____________________________
+Daryend Castillo                Samuel Yambay
+
+____________________________    ____________________________
+Franklin Acero                  Alex Lema
+
+____________________________    ____________________________
+Omar Figueroa                   Doris Flores (Product Owner)
+
+
+================================================================
+La Oficina de Proyectos de Informática
+http://www.pmoinformatica.com
+================================================================
